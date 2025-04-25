@@ -244,8 +244,8 @@ const GeneratedSignature = ({ formData }) => {
                 <div style="margin-bottom: 1px;">
                   <h3 style="margin-bottom: 0;">${name}</h3>
                   ${
-                    department && section
-                      ? `<p style="margin-bottom: 1px;">${department} - ${section}</p>`
+                    department || section
+                      ? `<p style="margin-bottom: 1px;"><strong>Role:</strong> ${department}${section ? ` - ${section}` : ""}</p>`
                       : ""
                   }
                 </div>
