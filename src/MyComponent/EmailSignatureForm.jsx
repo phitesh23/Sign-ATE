@@ -90,7 +90,7 @@ const StudentForm = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="position">
-          <Form.Label>Position:</Form.Label>
+          <Form.Label>Role:</Form.Label>
           <Form.Select
             name="position"
             value={formData.position}
