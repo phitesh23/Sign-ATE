@@ -60,17 +60,28 @@ const StudentForm = () => {
     setGeneratedSignature(true);
   };
 
+  const extraContentStyle = {
+    fontFamily: "'Roboto', sans-serif",
+    fontWeight: formData.extraContentStyles.bold ? "bold" : "normal",
+    fontStyle: formData.extraContentStyles.italic ? "italic" : "normal",
+    textDecoration: formData.extraContentStyles.underline ? "underline" : "none",
+  };
+
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" style={{ fontFamily: "'Roboto', sans-serif" }}>
       <h2 className="mb-4 text-center">
-        AITR Student Email Signature Generator
+        Acropolis Email Signature Generator
       </h2>
 
       <Form
         onSubmit={handleFormSubmit}
         className="bg-light rounded p-4 shadow"
-        style={{ marginBottom: "50px" }}
+        style={{ marginBottom: "50px", fontFamily: "'Roboto', sans-serif" }}
       >
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name:</Form.Label>
           <Form.Control
@@ -80,6 +91,7 @@ const StudentForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -90,6 +102,7 @@ const StudentForm = () => {
             value={formData.department}
             onChange={handleChange}
             required
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             <option value="">Select Department</option>
             <option value="AIML">AIML</option>
@@ -111,6 +124,7 @@ const StudentForm = () => {
             value={formData.position}
             onChange={handleChange}
             required
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             <option value="">Select Position</option>
             <option value="Student">Student</option>
@@ -127,6 +141,7 @@ const StudentForm = () => {
             name="section"
             value={formData.section}
             onChange={handleChange}
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -138,6 +153,7 @@ const StudentForm = () => {
             name="designation"
             value={formData.designation}
             onChange={handleChange}
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -149,6 +165,7 @@ const StudentForm = () => {
             name="workNumber"
             value={formData.workNumber}
             onChange={handleChange}
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -161,6 +178,7 @@ const StudentForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -173,6 +191,7 @@ const StudentForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -183,6 +202,7 @@ const StudentForm = () => {
             name="imageLink"
             value={formData.imageLink}
             onChange={handleChange}
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -196,6 +216,7 @@ const StudentForm = () => {
                 name="linkedin"
                 value={formData.socialMedia.linkedin}
                 onChange={handleSocialMediaChange}
+                style={{ fontFamily: "'Roboto', sans-serif" }}
               />
             </Col>
             <Col xs={12} md={6} className="mb-3">
@@ -205,6 +226,7 @@ const StudentForm = () => {
                 name="portfolio"
                 value={formData.socialMedia.portfolio}
                 onChange={handleSocialMediaChange}
+                style={{ fontFamily: "'Roboto', sans-serif" }}
               />
             </Col>
           </Row>
@@ -218,6 +240,7 @@ const StudentForm = () => {
             name="extraContent"
             value={formData.extraContent}
             onChange={handleChange}
+            style={extraContentStyle}
           />
           <div className="mt-2">
             <ToggleButtonGroup
@@ -226,6 +249,7 @@ const StudentForm = () => {
                 (key) => formData.extraContentStyles[key]
               )}
               onChange={handleStyleChange}
+              style={{ fontFamily: "'Roboto', sans-serif" }}
             >
               <ToggleButton id="tbg-btn-1" value="bold">
                 Bold
@@ -240,7 +264,12 @@ const StudentForm = () => {
           </div>
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="mb-3">
+        <Button 
+          variant="primary" 
+          type="submit" 
+          className="mb-3"
+          style={{ fontFamily: "'Roboto', sans-serif" }}
+        >
           Generate Email Signature
         </Button>
       </Form>
