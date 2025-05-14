@@ -5,13 +5,15 @@ const GeneratedSignature = ({ formData }) => {
     name,
     department,
     section,
-    phone,
+    workPhone,
+    personalPhone,
     email,
     socialMedia,
     extraContent,
     position,
     designation,
-    role // Assuming role is part of formData to determine if user is a student
+    role,
+    website // New field for personal website/portfolio
   } = formData;
 
   const copyHtmlToClipboard = (html) => {
@@ -56,14 +58,22 @@ const GeneratedSignature = ({ formData }) => {
         )}
       </div>
 
-      {/* Phone and Email */}
+      {/* Work Phone, Personal Phone, Email, and Website */}
       <div style={{ marginBottom: "10px" }}>
-        {phone && (
+        {workPhone && (
           <p
             style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
           >
-            <span style={{ fontSize: "21px" }}>☎</span>
-            <span style={{ marginLeft: "5px" }}>{phone}</span>
+            <span style={{ fontSize: "16px", fontWeight: "bold" }}>W-</span>
+            <span style={{ marginLeft: "5px" }}>{workPhone}</span>
+          </p>
+        )}
+        {personalPhone && (
+          <p
+            style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
+          >
+            <span style={{ fontSize: "16px", fontWeight: "bold" }}>P-</span>
+            <span style={{ marginLeft: "5px" }}>{personalPhone}</span>
           </p>
         )}
         {email && (
@@ -72,6 +82,23 @@ const GeneratedSignature = ({ formData }) => {
           >
             <span style={{ fontSize: "22px" }}>✉</span>
             <span style={{ marginLeft: "5px" }}>{email}</span>
+          </p>
+        )}
+        {website && (
+          <p
+            style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
+          >
+            <span style={{ marginRight: "5px" }}>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png"
+                alt="Website"
+                width="21"
+                height="21"
+              />
+            </span>
+            <a href={website} target="_blank" rel="noopener noreferrer">
+              Personal Website/Portfolio
+            </a>
           </p>
         )}
       </div>
@@ -185,7 +212,10 @@ const GeneratedSignature = ({ formData }) => {
 
       {/* Extra Content */}
       {extraContent && (
-        <p style={{ marginBottom: "0", fontStyle: "italic" }}>{extraContent}</p>
+        <div
+          style={{ marginBottom: "0" }}
+          dangerouslySetInnerHTML={{ __html: extraContent }}
+        />
       )}
 
       {/* Copy Button */}
@@ -213,13 +243,23 @@ const GeneratedSignature = ({ formData }) => {
                     : ""
                 }
                 ${
-                  phone
-                    ? `<p style="margin-bottom: 0;"><span>☎</span> ${phone}</p>`
+                  workPhone
+                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">W-</span> ${workPhone}</p>`
+                    : ""
+                }
+                ${
+                  personalPhone
+                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">P-</span> ${personalPhone}</p>`
                     : ""
                 }
                 ${
                   email
                     ? `<p style="margin-bottom: 0;"><span>✉</span> ${email}</p>`
+                    : ""
+                }
+                ${
+                  website
+                    ? `<p style="margin-bottom: 0;"><span><img src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png" width="21" height="21" style="margin-right: 5px;" /></span><a href="${website}" target="_blank">Personal Website/Portfolio</a></p>`
                     : ""
                 }
                 <img src="https://aitr.ac.in/wp-content/uploads/2023/03/White-Logos-for-Acropolis.png" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:10px;" />
@@ -245,6 +285,7 @@ const GeneratedSignature = ({ formData }) => {
                       : ""
                   }
                 </div>
+                ${extraContent ? `<div>${extraContent}</div>` : ""}
               </div>
             `;
             copyHtmlToClipboard(signatureHtml);
