@@ -69,7 +69,7 @@ const StudentForm = () => {
 
   return (
     <div className="container mt-5" style={{ fontFamily: "'Roboto', sans-serif" }}>
-      <h2 className="mb-4 text-center">
+      <h2 className="mb-4 text-center" style={{ fontWeight: "bold" }}>
         Acropolis Email Signature Generator
       </h2>
 
@@ -91,7 +91,7 @@ const StudentForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            style={{ fontFamily: "'Roboto', sans-serif" }}
+            style={{ fontFamily: "'Roboto', sans-serif", fontWeight: "bold" }}
           />
         </Form.Group>
 
@@ -105,15 +105,29 @@ const StudentForm = () => {
             style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             <option value="">Select Department</option>
-            <option value="AIML">AIML</option>
-            <option value="CIVIL">CIVIL</option>
-            <option value="CSE">CSE</option>
-            <option value="CSE(Cyber security)">CSE(Cyber security)</option>
-            <option value="CSIT">CSIT</option>
-            <option value="DS">DS</option>
-            <option value="ECE">ECE</option>
-            <option value="IT">IT</option>
-            <option value="Mechanical">Mechanical</option>
+            <optgroup label="AITR">
+              <option value="AIML">AIML</option>
+              <option value="CIVIL">CIVIL</option>
+              <option value="CSE">CSE</option>
+              <option value="CSE(Cyber security)">CSE(Cyber security)</option>
+              <option value="CSIT">CSIT</option>
+              <option value="DS">DS</option>
+              <option value="ECE">ECE</option>
+              <option value="IT">IT</option>
+              <option value="Mechanical">Mechanical</option>
+            </optgroup>
+            <optgroup label="AFMR">
+              <option value="" disabled>No departments available</option>
+            </optgroup>
+            <optgroup label="AMISR">
+              <option value="" disabled>No departments available</option>
+            </optgroup>
+            <optgroup label="AIPER">
+              <option value="" disabled>No departments available</option>
+            </optgroup>
+            <optgroup label="AIL">
+              <option value="" disabled>No departments available</option>
+            </optgroup>
           </Form.Select>
         </Form.Group>
 
