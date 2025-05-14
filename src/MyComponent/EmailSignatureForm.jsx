@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import GeneratedSignature from "./GeneratedSignature";
 
@@ -10,15 +10,19 @@ const StudentForm = () => {
     position: "",
     section: "",
     designation: "",
+    workNumber: "",
     phone: "",
     email: "",
     socialMedia: {
-      facebook: "",
       linkedin: "",
-      twitter: "",
-      instagram: "",
+      portfolio: "",
     },
     extraContent: "",
+    extraContentStyles: {
+      bold: false,
+      italic: false,
+      underline: false,
+    },
     imageLink: "",
   });
 
@@ -37,6 +41,17 @@ const StudentForm = () => {
     setFormData((prevData) => ({
       ...prevData,
       socialMedia: { ...prevData.socialMedia, [name]: value },
+    }));
+  };
+
+  const handleStyleChange = (styles) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      extraContentStyles: {
+        bold: styles.includes("bold"),
+        italic: styles.includes("italic"),
+        underline: styles.includes("underline"),
+      },
     }));
   };
 
@@ -100,6 +115,7 @@ const StudentForm = () => {
             <option value="">Select Position</option>
             <option value="Student">Student</option>
             <option value="Faculty">Faculty</option>
+            <option value="Staff Member">Staff Member</option>
           </Form.Select>
         </Form.Group>
 
@@ -121,6 +137,17 @@ const StudentForm = () => {
             placeholder="Enter your designation"
             name="designation"
             value={formData.designation}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="workNumber">
+          <Form.Label>Work Number:</Form.Label>
+          <Form.Control
+            type="tel"
+            placeholder="e.g. +91 7489###609"
+            name="workNumber"
+            value={formData.workNumber}
             onChange={handleChange}
           />
         </Form.Group>
@@ -165,15 +192,6 @@ const StudentForm = () => {
             <Col xs={12} md={6} className="mb-3">
               <Form.Control
                 type="text"
-                placeholder="Facebook profile URL"
-                name="facebook"
-                value={formData.socialMedia.facebook}
-                onChange={handleSocialMediaChange}
-              />
-            </Col>
-            <Col xs={12} md={6} className="mb-3">
-              <Form.Control
-                type="text"
                 placeholder="LinkedIn profile URL"
                 name="linkedin"
                 value={formData.socialMedia.linkedin}
@@ -183,18 +201,9 @@ const StudentForm = () => {
             <Col xs={12} md={6} className="mb-3">
               <Form.Control
                 type="text"
-                placeholder="Twitter profile URL"
-                name="twitter"
-                value={formData.socialMedia.twitter}
-                onChange={handleSocialMediaChange}
-              />
-            </Col>
-            <Col xs={12} md={6} className="mb-3">
-              <Form.Control
-                type="text"
-                placeholder="Instagram profile URL"
-                name="instagram"
-                value={formData.socialMedia.instagram}
+                placeholder="Personal Website/Portfolio URL"
+                name="portfolio"
+                value={formData.socialMedia.portfolio}
                 onChange={handleSocialMediaChange}
               />
             </Col>
@@ -210,6 +219,25 @@ const StudentForm = () => {
             value={formData.extraContent}
             onChange={handleChange}
           />
+          <div className="mt-2">
+            <ToggleButtonGroup
+              type="checkbox"
+              value={Object.keys(formData.extraContentStyles).filter(
+                (key) => formData.extraContentStyles[key]
+              )}
+              onChange={handleStyleChange}
+            >
+              <ToggleButton id="tbg-btn-1" value="bold">
+                Bold
+              </ToggleButton>
+              <ToggleButton id="tbg-btn-2" value="italic">
+                Italic
+              </ToggleButton>
+              <ToggleButton id="tbg-btn-3" value="underline">
+                Underline
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </div>
         </Form.Group>
 
         <Button variant="primary" type="submit" className="mb-3">
