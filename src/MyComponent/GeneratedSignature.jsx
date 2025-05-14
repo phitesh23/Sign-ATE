@@ -11,6 +11,7 @@ const GeneratedSignature = ({ formData }) => {
     extraContent,
     position,
     designation,
+    role // Assuming role is part of formData to determine if user is a student
   } = formData;
 
   const copyHtmlToClipboard = (html) => {
@@ -49,7 +50,8 @@ const GeneratedSignature = ({ formData }) => {
         )}
         {department && (
           <p style={{ marginBottom: "0" }}>
-            {department} {section && `- ${section}`}
+            {department}
+            {role === "student" && section && ` - Roll: ${section}`}
           </p>
         )}
       </div>
@@ -204,9 +206,9 @@ const GeneratedSignature = ({ formData }) => {
                     : ""
                 }
                 ${
-                  department || section
+                  department
                     ? `<p style="margin-bottom: 1px;">${department}${
-                        section ? ` - ${section}` : ""
+                        role === "student" && section ? ` - Roll: ${section}` : ""
                       }</p>`
                     : ""
                 }
@@ -248,7 +250,19 @@ const GeneratedSignature = ({ formData }) => {
             copyHtmlToClipboard(signatureHtml);
             alert("Email signature copied to clipboard!");
           }}
-          className="btn-btn"
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            transition: "box-shadow 0.3s ease",
+          }}
+          onMouseEnter={(e) =>
+            (e.target.style.boxShadow = "0 0 15px rgba(0, 123, 255, 0.7)")
+          }
+          onMouseLeave={(e) => (e.target.style.boxShadow = "none")}
         >
           Copy Email Signature
         </button>
