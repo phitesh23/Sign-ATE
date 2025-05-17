@@ -5,15 +5,14 @@ const GeneratedSignature = ({ formData }) => {
     name,
     department,
     section,
-    workPhone,
-    personalPhone,
+    workNumber,
+    phone,
     email,
     socialMedia,
     extraContent,
     position,
     designation,
-    role,
-    website // New field for personal website/portfolio
+    extraContentStyles
   } = formData;
 
   const copyHtmlToClipboard = (html) => {
@@ -29,6 +28,12 @@ const GeneratedSignature = ({ formData }) => {
     document.body.removeChild(tempElement);
   };
 
+  const extraContentStyle = {
+    fontWeight: extraContentStyles.bold ? "bold" : "normal",
+    fontStyle: extraContentStyles.italic ? "italic" : "normal",
+    textDecoration: extraContentStyles.underline ? "underline" : "none",
+  };
+
   return (
     <div
       style={{
@@ -39,41 +44,41 @@ const GeneratedSignature = ({ formData }) => {
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
       }}
     >
-      {/* Name, Role, Designation */}
+      {/* Horizontal Line before Name */}
       <div style={{ marginBottom: "10px" }}>
+        <p style={{ marginBottom: "5px" }}>------------------</p>
         <h3 style={{ marginBottom: "5px" }}>{name}</h3>
-        {position && (
-          <p style={{ marginBottom: "3px", fontWeight: "bold" }}>{position}</p>
+        {position === "Student" && (
+          <p style={{ marginBottom: "3px" }}>{position}</p>
         )}
         {designation && (
-          <p style={{ marginBottom: "5px", fontStyle: "italic" }}>
-            {designation}
-          </p>
+          <p style={{ marginBottom: "5px" }}>{designation}</p>
         )}
         {department && (
           <p style={{ marginBottom: "0" }}>
             {department}
-            {role === "student" && section && ` - Roll: ${section}`}
+            {position === "Student" && section && ` - Roll: ${section}`}
           </p>
         )}
       </div>
 
-      {/* Work Phone, Personal Phone, Email, and Website */}
+      {/* Horizontal Line before Work Number */}
       <div style={{ marginBottom: "10px" }}>
-        {workPhone && (
+        <p style={{ marginBottom: "5px" }}>------------------</p>
+        {workNumber && (
           <p
             style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
           >
             <span style={{ fontSize: "16px", fontWeight: "bold" }}>W-</span>
-            <span style={{ marginLeft: "5px" }}>{workPhone}</span>
+            <span style={{ marginLeft: "5px" }}>{workNumber}</span>
           </p>
         )}
-        {personalPhone && (
+        {phone && (
           <p
             style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
           >
             <span style={{ fontSize: "16px", fontWeight: "bold" }}>P-</span>
-            <span style={{ marginLeft: "5px" }}>{personalPhone}</span>
+            <span style={{ marginLeft: "5px" }}>{phone}</span>
           </p>
         )}
         {email && (
@@ -82,23 +87,6 @@ const GeneratedSignature = ({ formData }) => {
           >
             <span style={{ fontSize: "22px" }}>✉</span>
             <span style={{ marginLeft: "5px" }}>{email}</span>
-          </p>
-        )}
-        {website && (
-          <p
-            style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
-          >
-            <span style={{ marginRight: "5px" }}>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png"
-                alt="Website"
-                width="21"
-                height="21"
-              />
-            </span>
-            <a href={website} target="_blank" rel="noopener noreferrer">
-              Personal Website/Portfolio
-            </a>
           </p>
         )}
       </div>
@@ -116,31 +104,9 @@ const GeneratedSignature = ({ formData }) => {
         />
       </div>
 
-      {/* Social Media Links */}
+      {/* Social Media Links including Portfolio */}
       <div style={{ marginBottom: "10px" }}>
         <div style={{ textAlign: "start" }}>
-          {socialMedia.facebook && (
-            <span
-              style={{
-                margin: "0 5px",
-                display: "inline-block",
-                marginRight: "15px",
-              }}
-            >
-              <a
-                href={socialMedia.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png"
-                  alt="Facebook"
-                  width="23"
-                  height="23"
-                />
-              </a>
-            </span>
-          )}
           {socialMedia.linkedin && (
             <span
               style={{
@@ -163,7 +129,7 @@ const GeneratedSignature = ({ formData }) => {
               </a>
             </span>
           )}
-          {socialMedia.twitter && (
+          {socialMedia.portfolio && (
             <span
               style={{
                 margin: "0 5px",
@@ -172,35 +138,13 @@ const GeneratedSignature = ({ formData }) => {
               }}
             >
               <a
-                href={socialMedia.twitter}
+                href={socialMedia.portfolio}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png"
-                  alt="Twitter"
-                  width="21"
-                  height="21"
-                />
-              </a>
-            </span>
-          )}
-          {socialMedia.instagram && (
-            <span
-              style={{
-                margin: "0 5px",
-                display: "inline-block",
-                marginRight: "15px",
-              }}
-            >
-              <a
-                href={socialMedia.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/3661/3661391.png"
-                  alt="Instagram"
+                  src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png"
+                  alt="Website"
                   width="21"
                   height="21"
                 />
@@ -210,12 +154,12 @@ const GeneratedSignature = ({ formData }) => {
         </div>
       </div>
 
-      {/* Extra Content */}
+      {/* Extra Content with Horizontal Line below */}
       {extraContent && (
-        <div
-          style={{ marginBottom: "0" }}
-          dangerouslySetInnerHTML={{ __html: extraContent }}
-        />
+        <div style={{ marginBottom: "0", ...extraContentStyle }}>
+          {extraContent}
+          <p style={{ marginTop: "5px" }}>------------------</p>
+        </div>
       )}
 
       {/* Copy Button */}
@@ -224,32 +168,34 @@ const GeneratedSignature = ({ formData }) => {
           onClick={() => {
             const signatureHtml = `
               <div style="font-family: Arial, sans-serif; width: 400px;">
+                <p style="margin-bottom: 5px;">------------------</p>
                 <h3 style="margin-bottom: 5px;">${name}</h3>
                 ${
-                  position
-                    ? `<p style="margin-bottom: 3px; font-weight: bold;">${position}</p>`
+                  position === "Student"
+                    ? `<p style="margin-bottom: 3px;">${position}</p>`
                     : ""
                 }
                 ${
                   designation
-                    ? `<p style="margin-bottom: 5px; font-style: italic;">${designation}</p>`
+                    ? `<p style="margin-bottom: 5px;">${designation}</p>`
                     : ""
                 }
                 ${
                   department
                     ? `<p style="margin-bottom: 1px;">${department}${
-                        role === "student" && section ? ` - Roll: ${section}` : ""
+                        position === "Student" && section ? ` - Roll: ${section}` : ""
                       }</p>`
                     : ""
                 }
+                <p style="margin-bottom: 5px;">------------------</p>
                 ${
-                  workPhone
-                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">W-</span> ${workPhone}</p>`
+                  workNumber
+                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">W-</span> ${workNumber}</p>`
                     : ""
                 }
                 ${
-                  personalPhone
-                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">P-</span> ${personalPhone}</p>`
+                  phone
+                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">P-</span> ${phone}</p>`
                     : ""
                 }
                 ${
@@ -257,35 +203,24 @@ const GeneratedSignature = ({ formData }) => {
                     ? `<p style="margin-bottom: 0;"><span>✉</span> ${email}</p>`
                     : ""
                 }
-                ${
-                  website
-                    ? `<p style="margin-bottom: 0;"><span><img src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png" width="21" height="21" style="margin-right: 5px;" /></span><a href="${website}" target="_blank">Personal Website/Portfolio</a></p>`
-                    : ""
-                }
                 <img src="https://aitr.ac.in/wp-content/uploads/2023/03/White-Logos-for-Acropolis.png" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:10px;" />
                 <div style="margin-top: 10px;">
-                  ${
-                    socialMedia.facebook
-                      ? `<a href="${socialMedia.facebook}" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png" width="23" height="23" style="margin-right: 10px;" /></a>`
-                      : ""
-                  }
                   ${
                     socialMedia.linkedin
                       ? `<a href="${socialMedia.linkedin}" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="21" height="21" style="margin-right: 10px;" /></a>`
                       : ""
                   }
                   ${
-                    socialMedia.twitter
-                      ? `<a href="${socialMedia.twitter}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" width="21" height="21" style="margin-right: 10px;" /></a>`
-                      : ""
-                  }
-                  ${
-                    socialMedia.instagram
-                      ? `<a href="${socialMedia.instagram}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3661/3661391.png" width="21" height="21" /></a>`
+                    socialMedia.portfolio
+                      ? `<a href="${socialMedia.portfolio}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png" width="21" height="21" style="margin-right: 10px;" /></a>`
                       : ""
                   }
                 </div>
-                ${extraContent ? `<div>${extraContent}</div>` : ""}
+                ${
+                  extraContent
+                    ? `<div style="font-weight: ${extraContentStyles.bold ? 'bold' : 'normal'}; font-style: ${extraContentStyles.italic ? 'italic' : 'normal'}; text-decoration: ${extraContentStyles.underline ? 'underline' : 'none'};">${extraContent}<p style="margin-top: 5px;">------------------</p></div>`
+                    : ""
+                }
               </div>
             `;
             copyHtmlToClipboard(signatureHtml);
