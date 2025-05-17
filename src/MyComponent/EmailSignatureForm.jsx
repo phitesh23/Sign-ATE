@@ -167,7 +167,7 @@ const StudentForm = () => {
             name="designation"
             value={formData.designation}
             onChange={handleChange}
-            style={{ fontFamily: "'Roboto', sans-serif" }}
+            style={extraContentStyle}
           />
         </Form.Group>
 
@@ -278,9 +278,9 @@ const StudentForm = () => {
           </div>
         </Form.Group>
 
-        <Button 
-          variant="primary" 
-          type="submit" 
+        <Button
+          variant="primary"
+          type="submit"
           className="mb-3"
           style={{ fontFamily: "'Roboto', sans-serif" }}
         >
