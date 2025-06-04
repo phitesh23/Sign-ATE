@@ -203,7 +203,7 @@ const GeneratedSignature = ({ formData }) => {
                     ? `<p style="margin-bottom: 0;"><span>✉</span> ${email}</p>`
                     : ""
                 }
-                <img src="https://aitr.ac.in/wp-content/uploads/2023/03/White-Logos-for-Acropolis.png" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:10px;" />
+                <img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/institutes/logo/170x170/671.jpg" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:10px;" />
                 <div style="margin-top: 10px;">
                   ${
                     socialMedia.linkedin
