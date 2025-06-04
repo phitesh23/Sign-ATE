@@ -37,7 +37,7 @@ const GeneratedSignature = ({ formData }) => {
   return (
     <div
       style={{
-        fontFamily: "Arial, sans-serif",
+        fontFamily: "Roboto, sans-serif",
         width: "400px",
         margin: "50px auto",
         padding: "20px",
@@ -143,7 +143,7 @@ const GeneratedSignature = ({ formData }) => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png"
+                  src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png"
                   alt="Website"
                   width="21"
                   height="21"
