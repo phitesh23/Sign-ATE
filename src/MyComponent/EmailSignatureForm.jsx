@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { Form, Button, Row, Col, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  ToggleButton,
+  ToggleButtonGroup,
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import GeneratedSignature from "./GeneratedSignature";
 
-const StudentForm = () => {
+const EmailSignatureForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     department: "",
@@ -64,7 +71,9 @@ const StudentForm = () => {
     fontFamily: "'Roboto', sans-serif",
     fontWeight: formData.extraContentStyles.bold ? "bold" : "normal",
     fontStyle: formData.extraContentStyles.italic ? "italic" : "normal",
-    textDecoration: formData.extraContentStyles.underline ? "underline" : "none",
+    textDecoration: formData.extraContentStyles.underline
+      ? "underline"
+      : "none",
   };
 
   return (
@@ -82,6 +91,7 @@ const StudentForm = () => {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
         />
+
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name:</Form.Label>
           <Form.Control
@@ -91,7 +101,7 @@ const StudentForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            style={{ fontFamily: "'Roboto', sans-serif", fontWeight: "bold" }}
+            style={{ fontWeight: "bold" }}
           />
         </Form.Group>
 
@@ -102,7 +112,6 @@ const StudentForm = () => {
             value={formData.department}
             onChange={handleChange}
             required
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             <option value="">Select Department</option>
             <optgroup label="AITR">
@@ -115,18 +124,31 @@ const StudentForm = () => {
               <option value="ECE">ECE</option>
               <option value="IT">IT</option>
               <option value="Mechanical">Mechanical</option>
+              <option value="Faculty of Computer Application (FCA)">
+                Faculty of Computer Application (FCA)
+              </option>
             </optgroup>
             <optgroup label="AFMR">
-              <option value="" disabled>No departments available</option>
-            </optgroup>
-            <optgroup label="AMISR">
-              <option value="" disabled>No departments available</option>
+              <option value="MBA">MBA</option>
             </optgroup>
             <optgroup label="AIPER">
-              <option value="" disabled>No departments available</option>
+              <option value="D. PHARM">D. PHARM</option>
+              <option value="B. PHARM">B. PHARM</option>
+              <option value="M. PHARM">M. PHARM</option>
+            </optgroup>
+            <optgroup label="AIMSR">
+              <option value="BBA">BBA</option>
+              <option value="B.COM">B.COM</option>
+              <option value="B.SC">B.SC</option>
+              <option value="M.SC">M.SC</option>
+              <option value="B.A.">B.A.</option>
+              <option value="M.COM">M.COM</option>
+              <option value="MA">MA</option>
             </optgroup>
             <optgroup label="AIL">
-              <option value="" disabled>No departments available</option>
+              <option value="B.A. LLB">B.A. LLB</option>
+              <option value="BBA LLB">BBA LLB</option>
+              <option value="LLB">LLB</option>
             </optgroup>
           </Form.Select>
         </Form.Group>
@@ -138,7 +160,6 @@ const StudentForm = () => {
             value={formData.position}
             onChange={handleChange}
             required
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             <option value="">Select Position</option>
             <option value="Student">Student</option>
@@ -155,7 +176,6 @@ const StudentForm = () => {
             name="section"
             value={formData.section}
             onChange={handleChange}
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -179,7 +199,6 @@ const StudentForm = () => {
             name="workNumber"
             value={formData.workNumber}
             onChange={handleChange}
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -192,7 +211,6 @@ const StudentForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -205,7 +223,6 @@ const StudentForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -216,7 +233,6 @@ const StudentForm = () => {
             name="imageLink"
             value={formData.imageLink}
             onChange={handleChange}
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           />
         </Form.Group>
 
@@ -230,7 +246,6 @@ const StudentForm = () => {
                 name="linkedin"
                 value={formData.socialMedia.linkedin}
                 onChange={handleSocialMediaChange}
-                style={{ fontFamily: "'Roboto', sans-serif" }}
               />
             </Col>
             <Col xs={12} md={6} className="mb-3">
@@ -240,7 +255,6 @@ const StudentForm = () => {
                 name="portfolio"
                 value={formData.socialMedia.portfolio}
                 onChange={handleSocialMediaChange}
-                style={{ fontFamily: "'Roboto', sans-serif" }}
               />
             </Col>
           </Row>
@@ -263,7 +277,6 @@ const StudentForm = () => {
                 (key) => formData.extraContentStyles[key]
               )}
               onChange={handleStyleChange}
-              style={{ fontFamily: "'Roboto', sans-serif" }}
             >
               <ToggleButton id="tbg-btn-1" value="bold">
                 Bold
@@ -278,12 +291,7 @@ const StudentForm = () => {
           </div>
         </Form.Group>
 
-        <Button
-          variant="primary"
-          type="submit"
-          className="mb-3"
-          style={{ fontFamily: "'Roboto', sans-serif" }}
-        >
+        <Button variant="primary" type="submit" className="mb-3">
           Generate Email Signature
         </Button>
       </Form>
@@ -293,4 +301,4 @@ const StudentForm = () => {
   );
 };
 
-export default StudentForm;
+export default EmailSignatureForm;
