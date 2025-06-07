@@ -68,7 +68,7 @@ const EmailSignatureForm = () => {
   };
 
   const extraContentStyle = {
-    fontFamily: "'Roboto', sans-serif",
+    fontFamily: "Roboto, sans-serif",
     fontWeight: formData.extraContentStyles.bold ? "bold" : "normal",
     fontStyle: formData.extraContentStyles.italic ? "italic" : "normal",
     textDecoration: formData.extraContentStyles.underline
@@ -177,6 +177,7 @@ const EmailSignatureForm = () => {
             value={formData.position}
             onChange={handleChange}
             required
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             <option value="">Select Position</option>
             <option value="Student">Student</option>
