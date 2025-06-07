@@ -105,53 +105,70 @@ const EmailSignatureForm = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="department">
-          <Form.Label>Department:</Form.Label>
-          <Form.Select
-            name="department"
-            value={formData.department}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Department</option>
-            <optgroup label="AITR">
-              <option value="AIML">AIML</option>
-              <option value="CIVIL">CIVIL</option>
-              <option value="CSE">CSE</option>
-              <option value="CSE(Cyber security)">CSE(Cyber security)</option>
-              <option value="CSIT">CSIT</option>
-              <option value="DS">DS</option>
-              <option value="ECE">ECE</option>
-              <option value="IT">IT</option>
-              <option value="Mechanical">Mechanical</option>
-              <option value="Faculty of Computer Application (FCA)">
-                Faculty of Computer Application (FCA)
-              </option>
-            </optgroup>
-            <optgroup label="AFMR">
-              <option value="MBA">MBA</option>
-            </optgroup>
-            <optgroup label="AIPER">
-              <option value="D. PHARM">D. PHARM</option>
-              <option value="B. PHARM">B. PHARM</option>
-              <option value="M. PHARM">M. PHARM</option>
-            </optgroup>
-            <optgroup label="AIMSR">
-              <option value="BBA">BBA</option>
-              <option value="B.COM">B.COM</option>
-              <option value="B.SC">B.SC</option>
-              <option value="M.SC">M.SC</option>
-              <option value="B.A.">B.A.</option>
-              <option value="M.COM">M.COM</option>
-              <option value="MA">MA</option>
-            </optgroup>
-            <optgroup label="AIL">
-              <option value="B.A. LLB">B.A. LLB</option>
-              <option value="BBA LLB">BBA LLB</option>
-              <option value="LLB">LLB</option>
-            </optgroup>
-          </Form.Select>
-        </Form.Group>
+<Form.Group className="mb-3" controlId="department">
+  <Form.Label>Department:</Form.Label>
+  <Form.Select
+    name="department"
+    value={formData.department}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Department</option>
+    <optgroup label="AITR">
+      <option value="Computer Science & Engineering (CSE)">
+        Computer Science & Engineering (CSE)
+      </option>
+      <option value="Information Technology (IT)">
+        Information Technology (IT)
+      </option>
+      <option value="Computer Science & Information Technology (CS&IT)">
+        Computer Science & Information Technology (CS&IT)
+      </option>
+      <option value="CSE Artificial Intelligence & Machine Learning (AI&ML)">
+        CSE Artificial Intelligence & Machine Learning (AI&ML)
+      </option>
+      <option value="CSE Data Science (DS)">CSE Data Science (DS)</option>
+      <option value="CSE Cyber Security">CSE Cyber Security</option>
+      <option value="CSE Indian Language">CSE Indian Language</option>
+      <option value="Electronics & Communication (EC)">
+        Electronics & Communication (EC)
+      </option>
+      <option value="Electronics & Communication (VLSI Design & Technology)">
+        Electronics & Communication (VLSI Design & Technology)
+      </option>
+      <option value="Electronics & Communication (Advanced Communications)">
+        Electronics & Communication (Advanced Communications)
+      </option>
+      <option value="Civil Engineering">Civil Engineering</option>
+      <option value="Mechanical Engineering">Mechanical Engineering</option>
+      <option value="Faculty of Computer Application (FCA)">
+        Faculty of Computer Application (FCA)
+      </option>
+    </optgroup>
+    <optgroup label="AFMR">
+      <option value="MBA">MBA</option>
+    </optgroup>
+    <optgroup label="AIPER">
+      <option value="D. PHARM">D. PHARM</option>
+      <option value="B. PHARM">B. PHARM</option>
+      <option value="M. PHARM">M. PHARM</option>
+    </optgroup>
+    <optgroup label="AIMSR">
+      <option value="BBA">BBA</option>
+      <option value="B.COM">B.COM</option>
+      <option value="B.SC">B.SC</option>
+      <option value="M.SC">M.SC</option>
+      <option value="B.A.">B.A.</option>
+      <option value="M.COM">M.COM</option>
+      <option value="MA">MA</option>
+    </optgroup>
+    <optgroup label="AIL">
+      <option value="B.A. LLB">B.A. LLB</option>
+      <option value="BBA LLB">BBA LLB</option>
+      <option value="LLB">LLB</option>
+    </optgroup>
+  </Form.Select>
+</Form.Group>
 
         <Form.Group className="mb-3" controlId="position">
           <Form.Label>Role:</Form.Label>
