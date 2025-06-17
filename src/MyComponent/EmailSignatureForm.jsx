@@ -179,7 +179,7 @@ const EmailSignatureForm = () => {
             required
             style={{ fontFamily: "'Roboto', sans-serif" }}
           >
-            <option value="">Select Position</option>
+             <optgroup label="Select Position">
             <option value="Student">Student</option>
             <option value="Faculty / Staff Member">Faculty / Staff Member</option>
            
