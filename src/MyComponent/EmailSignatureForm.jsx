@@ -179,9 +179,10 @@ const EmailSignatureForm = () => {
             required
             style={{ fontFamily: "'Roboto', sans-serif" }}
           >
-             <optgroup label="Select Position">
+            <optgroup label="Select Position">
             <option value="Student">Student</option>
             <option value="Faculty / Staff Member">Faculty / Staff Member</option>
+            </optgroup> 
            
           </Form.Select>
         </Form.Group>
