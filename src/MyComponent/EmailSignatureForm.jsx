@@ -114,7 +114,7 @@ const EmailSignatureForm = () => {
     required
   >
     <option value="">Select Department</option>
-    <optgroup label="AITR">
+    <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
       </option>
@@ -145,15 +145,15 @@ const EmailSignatureForm = () => {
         Faculty of Computer Application (FCA)
       </option>
     </optgroup>
-    <optgroup label="AFMR">
+    <optgroup label="Acropolis Faculty of Management & Research">
       <option value="MBA">MBA</option>
     </optgroup>
-    <optgroup label="AIPER">
+    <optgroup label="Acropolis Institute of Pharmaceutical Education & Research">
       <option value="D. PHARM">D. PHARM</option>
       <option value="B. PHARM">B. PHARM</option>
       <option value="M. PHARM">M. PHARM</option>
     </optgroup>
-    <optgroup label="AIMSR">
+    <optgroup label="Acropolis Institute of Management Studies & Research">
       <option value="BBA">BBA</option>
       <option value="B.COM">B.COM</option>
       <option value="B.SC">B.SC</option>
@@ -162,7 +162,7 @@ const EmailSignatureForm = () => {
       <option value="M.COM">M.COM</option>
       <option value="MA">MA</option>
     </optgroup>
-    <optgroup label="AIL">
+    <optgroup label="Acropolis Institute of Law">
       <option value="B.A. LLB">B.A. LLB</option>
       <option value="BBA LLB">BBA LLB</option>
       <option value="LLB">LLB</option>
@@ -181,8 +181,8 @@ const EmailSignatureForm = () => {
           >
             <option value="">Select Position</option>
             <option value="Student">Student</option>
-            <option value="Faculty">Faculty</option>
-            <option value="Staff Member">Staff Member</option>
+            <option value="Faculty / Staff Member">Faculty / Staff Member</option>
+           
           </Form.Select>
         </Form.Group>
 
@@ -205,7 +205,6 @@ const EmailSignatureForm = () => {
             name="designation"
             value={formData.designation}
             onChange={handleChange}
-            style={extraContentStyle}
           />
         </Form.Group>
 
@@ -213,7 +212,7 @@ const EmailSignatureForm = () => {
           <Form.Label>Work Number:</Form.Label>
           <Form.Control
             type="tel"
-            placeholder="e.g. +91 7489###609"
+            placeholder="e.g. 123..."
             name="workNumber"
             value={formData.workNumber}
             onChange={handleChange}
