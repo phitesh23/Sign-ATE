@@ -37,7 +37,7 @@ const GeneratedSignature = ({ formData }) => {
   return (
     <div
       style={{
-        fontFamily: "Roboto, sans-serif",
+        fontFamily: "Arial, sans-serif",
         width: "400px",
         margin: "50px auto",
         padding: "20px",
@@ -45,26 +45,26 @@ const GeneratedSignature = ({ formData }) => {
       }}
     >
       {/* Horizontal Line before Name */}
-      <div style={{ marginBottom: "10px" }}>
-        <p style={{ marginBottom: "5px" }}>------------------</p>
-        <h3 style={{ marginBottom: "5px" }}>{name}</h3>
+      <div style={{ marginBottom: "8px" }}>
+        <p style={{ marginBottom: "3px", fontWeight: "bold" }}>______________________</p>
+        <h3 style={{ marginBottom: "3px", fontWeight: "bold" }}>{name}</h3>
         {position === "Student" && (
-          <p style={{ marginBottom: "3px" }}>{position}</p>
+          <p style={{ marginBottom: "2px" }}>{position}</p>
         )}
         {designation && (
-          <p style={{ marginBottom: "5px" }}>{designation}</p>
+          <p style={{ marginBottom: "3px" }}>{designation}</p>
         )}
-        {department && (
-          <p style={{ marginBottom: "0" }}>
-            {department}
-            {position === "Student" && section && ` - Roll: ${section}`}
-          </p>
+         {department && (
+          <p style={{ marginBottom: "2px" }}>{department}</p>
+        )}
+        {position === "Student" && section && (
+          <p style={{ marginBottom: "0" }}>Section: {section}</p>
         )}
       </div>
 
       {/* Horizontal Line before Work Number */}
-      <div style={{ marginBottom: "10px" }}>
-        <p style={{ marginBottom: "5px" }}>------------------</p>
+      <div style={{ marginBottom: "8px" }}>
+        <p style={{ marginBottom: "3px", fontWeight: "bold" }}>______________________</p>
         {workNumber && (
           <p
             style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
@@ -85,16 +85,16 @@ const GeneratedSignature = ({ formData }) => {
           <p
             style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
           >
-            <span style={{ fontSize: "22px" }}>✉</span>
+            <span style={{ fontSize: "16px", fontWeight: "bold"}}>M-</span>
             <span style={{ marginLeft: "5px" }}>{email}</span>
           </p>
         )}
       </div>
 
       {/* Logo */}
-      <div style={{ marginBottom: "10px" }}>
+      <div style={{ marginBottom: "8px" }}>
         <img
-          src="https://aitr.ac.in/wp-content/uploads/2023/03/White-Logos-for-Acropolis.png"
+          src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"
           alt={name}
           width="80%"
           height="80"
@@ -105,7 +105,7 @@ const GeneratedSignature = ({ formData }) => {
       </div>
 
       {/* Social Media Links including Portfolio */}
-      <div style={{ marginBottom: "10px" }}>
+      <div style={{ marginBottom: "8px" }}>
         <div style={{ textAlign: "start" }}>
           {socialMedia.linkedin && (
             <span
@@ -158,36 +158,39 @@ const GeneratedSignature = ({ formData }) => {
       {extraContent && (
         <div style={{ marginBottom: "0", ...extraContentStyle }}>
           {extraContent}
-          <p style={{ marginTop: "5px" }}>------------------</p>
+          <p style={{ marginTop: "3px", fontWeight: "bold" }}>______________________</p>
         </div>
       )}
 
       {/* Copy Button */}
-      <div style={{ marginTop: "20px" }}>
+      <div style={{ marginTop: "15px" }}>
         <button
           onClick={() => {
             const signatureHtml = `
               <div style="font-family: Arial, sans-serif; width: 400px;">
-                <p style="margin-bottom: 5px;">------------------</p>
-                <h3 style="margin-bottom: 5px;">${name}</h3>
+                <p style="margin-bottom: 3px; font-weight: bold;">______________________</p>
+                <h3 style="margin-bottom: 3px; font-weight: bold;">${name}</h3>
                 ${
                   position === "Student"
-                    ? `<p style="margin-bottom: 3px;">${position}</p>`
+                    ? `<p style="margin-bottom: 2px;">${position}</p>`
                     : ""
                 }
                 ${
                   designation
-                    ? `<p style="margin-bottom: 5px;">${designation}</p>`
+                    ? `<p style="margin-bottom: 3px;">${designation}</p>`
+                    : ""
+                }
+                 ${
+                  department
+                    ? `<p style="margin-bottom: 2px;">${department}</p>`
                     : ""
                 }
                 ${
-                  department
-                    ? `<p style="margin-bottom: 1px;">${department}${
-                        position === "Student" && section ? ` - Roll: ${section}` : ""
-                      }</p>`
+                  position === "Student" && section
+                    ? `<p style="margin-bottom: 0;">Section: ${section}</p>`
                     : ""
                 }
-                <p style="margin-bottom: 5px;">------------------</p>
+                <p style="margin-bottom: 3px; font-weight: bold;">______________________</p>
                 ${
                   workNumber
                     ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">W-</span> ${workNumber}</p>`
@@ -203,8 +206,8 @@ const GeneratedSignature = ({ formData }) => {
                     ? `<p style="margin-bottom: 0;"><span>✉</span> ${email}</p>`
                     : ""
                 }
-                <img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/institutes/logo/170x170/671.jpg" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:10px;" />
-                <div style="margin-top: 10px;">
+                <img src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:8px;" />
+                <div style="margin-top: 8px;">
                   ${
                     socialMedia.linkedin
                       ? `<a href="${socialMedia.linkedin}" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="21" height="21" style="margin-right: 10px;" /></a>`
@@ -218,7 +221,7 @@ const GeneratedSignature = ({ formData }) => {
                 </div>
                 ${
                   extraContent
-                    ? `<div style="font-weight: ${extraContentStyles.bold ? 'bold' : 'normal'}; font-style: ${extraContentStyles.italic ? 'italic' : 'normal'}; text-decoration: ${extraContentStyles.underline ? 'underline' : 'none'};">${extraContent}<p style="margin-top: 5px;">------------------</p></div>`
+                    ? `<div style="font-weight: ${extraContentStyles.bold ? 'bold' : 'normal'}; font-style: ${extraContentStyles.italic ? 'italic' : 'normal'}; text-decoration: ${extraContentStyles.underline ? 'underline' : 'none'};">${extraContent}<p style="margin-top: 3px; font-weight: bold;">______________________</p></div>`
                     : ""
                 }
               </div>
