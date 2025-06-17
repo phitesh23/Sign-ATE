@@ -27,7 +27,7 @@ const Footer = () => (
         <div className="col-md-6 mt-md-0 mt-3">
           <h5 className="text-uppercase">About the Email Signature Generator</h5>
           <p>
-            The Email Signature Generator is a tool designed to help students create professional email signatures. It allows you to enter your name, department, section, phone number, email, and professional profiles to generate a personalized email signature that you can use in your communications.
+            The Email Signature Generator is Designed by Hitesh Kumar Pathak it is a tool designed to help students create professional email signatures. It allows you to enter your name, department, section, phone number, email, and professional profiles to generate a personalized email signature that you can use in your communications.
           </p>
         </div>
 
@@ -98,8 +98,8 @@ const Footer = () => (
     {/* Copyright Section */}
     <div className="bg-dark text-white text-center py-3">
       &copy; {new Date().getFullYear()} Sign-Ate. All rights reserved. |{" "}
-      <a href="https://garvbhatt.github.io/Sign-Ate/" className="text-white">
-      garvbhatt.github.io/Sign-Ate/
+      <a href="https://github.com/phitesh23/Sign-ATE.git" className="text-white">
+      https://github.com/phitesh23/Sign-ATE.git
       </a>
     </div>
   </footer>
