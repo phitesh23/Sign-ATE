@@ -1,323 +1,253 @@
-import React, { useState } from "react";
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import GeneratedSignature from "./GeneratedSignature";
+import React from "react";
 
-const EmailSignatureForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    department: "",
-    position: "",
-    section: "",
-    designation: "",
-    workNumber: "",
-    phone: "",
-    email: "",
-    socialMedia: {
-      linkedin: "",
-      portfolio: "",
-    },
-    extraContent: "",
-    extraContentStyles: {
-      bold: false,
-      italic: false,
-      underline: false,
-    },
-    imageLink: "",
-  });
+const GeneratedSignature = ({ formData }) => {
+  const {
+    name,
+    department,
+    section,
+    workNumber,
+    phone,
+    email,
+    socialMedia,
+    extraContent,
+    position,
+    designation,
+    extraContentStyles
+  } = formData;
 
-  const [generatedSignature, setGeneratedSignature] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSocialMediaChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      socialMedia: { ...prevData.socialMedia, [name]: value },
-    }));
-  };
-
-  const handleStyleChange = (styles) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      extraContentStyles: {
-        bold: styles.includes("bold"),
-        italic: styles.includes("italic"),
-        underline: styles.includes("underline"),
-      },
-    }));
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setGeneratedSignature(true);
+  const copyHtmlToClipboard = (html) => {
+    const tempElement = document.createElement("div");
+    tempElement.innerHTML = html;
+    document.body.appendChild(tempElement);
+    const range = document.createRange();
+    range.selectNode(tempElement);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    document.body.removeChild(tempElement);
   };
 
   const extraContentStyle = {
-    fontFamily: "Roboto, sans-serif",
-    fontWeight: formData.extraContentStyles.bold ? "bold" : "normal",
-    fontStyle: formData.extraContentStyles.italic ? "italic" : "normal",
-    textDecoration: formData.extraContentStyles.underline
-      ? "underline"
-      : "none",
+    fontWeight: extraContentStyles.bold ? "bold" : "normal",
+    fontStyle: extraContentStyles.italic ? "italic" : "normal",
+    textDecoration: extraContentStyles.underline ? "underline" : "none",
   };
 
   return (
-    <div className="container mt-5" style={{ fontFamily: "'Roboto', sans-serif" }}>
-      <h2 className="mb-4 text-center" style={{ fontWeight: "bold" }}>
-        Acropolis Email Signature Generator
-      </h2>
+    <div
+      style={{
+        fontFamily: "Arial, sans-serif",
+        width: "400px",
+        margin: "50px auto",
+        padding: "20px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      {/* Horizontal Line before Name */}
+      <div style={{ marginBottom: "8px" }}>
+        <p style={{ marginBottom: "3px", fontWeight: "bold" }}>______________________</p>
+        <h3 style={{ marginBottom: "3px", fontWeight: "bold" }}>{name}</h3>
+        {position === "Student" && (
+          <p style={{ marginBottom: "2px" }}>{position}</p>
+        )}
+        {designation && (
+          <p style={{ marginBottom: "3px" }}>{designation}</p>
+        )}
+         {department && (
+          <p style={{ marginBottom: "2px" }}>{department}</p>
+        )}
+        {position === "Student" &&  (
+          <p style={{ marginBottom: "0" }}>Section: {section}</p>
+        )}
+      </div>
 
-      <Form
-        onSubmit={handleFormSubmit}
-        className="bg-light rounded p-4 shadow"
-        style={{ marginBottom: "50px", fontFamily: "'Roboto', sans-serif" }}
-      >
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your full name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            style={{ fontWeight: "bold" }}
-          />
-        </Form.Group>
-
-<Form.Group className="mb-3" controlId="department">
-  <Form.Label>Department:</Form.Label>
-  <Form.Select
-    name="department"
-    value={formData.department}
-    onChange={handleChange}
-    required
-  >
-    <option value="">Select Department</option>
-    <optgroup label="Acropolis Institute of Technology & Research">
-      <option value="Computer Science & Engineering (CSE)">
-        Computer Science & Engineering (CSE)
-      </option>
-      <option value="Information Technology (IT)">
-        Information Technology (IT)
-      </option>
-      <option value="Computer Science & Information Technology (CS&IT)">
-        Computer Science & Information Technology (CS&IT)
-      </option>
-      <option value="CSE Artificial Intelligence & Machine Learning (AI&ML)">
-        CSE Artificial Intelligence & Machine Learning (AI&ML)
-      </option>
-      <option value="CSE Data Science (DS)">CSE Data Science (DS)</option>
-      <option value="CSE Cyber Security">CSE Cyber Security</option>
-      <option value="CSE Indian Language">CSE Indian Language</option>
-      <option value="Electronics & Communication (EC)">
-        Electronics & Communication (EC)
-      </option>
-      <option value="Electronics & Communication (VLSI Design & Technology)">
-        Electronics & Communication (VLSI Design & Technology)
-      </option>
-      <option value="Electronics & Communication (Advanced Communications)">
-        Electronics & Communication (Advanced Communications)
-      </option>
-      <option value="Civil Engineering">Civil Engineering</option>
-      <option value="Mechanical Engineering">Mechanical Engineering</option>
-      <option value="Faculty of Computer Application (FCA)">
-        Faculty of Computer Application (FCA)
-      </option>
-    </optgroup>
-    <optgroup label="Acropolis Faculty of Management & Research">
-      <option value="MBA">MBA</option>
-    </optgroup>
-    <optgroup label="Acropolis Institute of Pharmaceutical Education & Research">
-      <option value="D. PHARM">D. PHARM</option>
-      <option value="B. PHARM">B. PHARM</option>
-      <option value="M. PHARM">M. PHARM</option>
-    </optgroup>
-    <optgroup label="Acropolis Institute of Management Studies & Research">
-      <option value="BBA">BBA</option>
-      <option value="B.COM">B.COM</option>
-      <option value="B.SC">B.SC</option>
-      <option value="M.SC">M.SC</option>
-      <option value="B.A.">B.A.</option>
-      <option value="M.COM">M.COM</option>
-      <option value="MA">MA</option>
-    </optgroup>
-    <optgroup label="Acropolis Institute of Law">
-      <option value="B.A. LLB">B.A. LLB</option>
-      <option value="BBA LLB">BBA LLB</option>
-      <option value="LLB">LLB</option>
-    </optgroup>
-  </Form.Select>
-</Form.Group>
-
-        <Form.Group className="mb-3" controlId="position">
-          <Form.Label>Role:</Form.Label>
-          <Form.Select
-            name="position"
-            value={formData.position}
-            onChange={handleChange}
-            required
-            style={{ fontFamily: "'Roboto', sans-serif" }}
+      {/* Horizontal Line before Work Number */}
+      <div style={{ marginBottom: "8px" }}>
+        <p style={{ marginBottom: "3px", fontWeight: "bold" }}>______________________</p>
+        {workNumber && (
+          <p
+            style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
           >
-            <optgroup label="Select Position">
-              <option value=" "> </option>
-            <option value="Student">Student</option>
-            <option value="Faculty / Staff Member">Faculty / Staff Member</option>
-            </optgroup> 
-           
-          </Form.Select>
-        </Form.Group>
+            <span style={{ fontSize: "16px", fontWeight: "bold" }}>W-</span>
+            <span style={{ marginLeft: "5px" }}>{workNumber}</span>
+          </p>
+        )}
+        {phone && (
+          <p
+            style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
+          >
+            <span style={{ fontSize: "16px", fontWeight: "bold" }}>P-</span>
+            <span style={{ marginLeft: "5px" }}>{phone}</span>
+          </p>
+        )}
+        {email && (
+          <p
+            style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
+          >
+            <span style={{ fontSize: "16px", fontWeight: "bold"}}>M-</span>
+            <span style={{ marginLeft: "5px" }}>{email}</span>
+          </p>
+        )}
+      </div>
 
-        <Form.Group className="mb-3" controlId="section">
-          <Form.Label>Section:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="e.g. CSIT-1 (ignore this field if faculty)"
-            name="section"
-            value={formData.section}
-            onChange={handleChange}
-          />
-        </Form.Group>
+      {/* Logo */}
+      <div style={{ marginBottom: "8px" }}>
+        <img
+          src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"
+          alt={name}
+          width="80%"
+          height="80"
+          style={{
+            display: "block",
+          }}
+        />
+      </div>
 
-        <Form.Group className="mb-3" controlId="designation">
-          <Form.Label>Designation:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your designation"
-            name="designation"
-            value={formData.designation}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="workNumber">
-          <Form.Label>Work Number:</Form.Label>
-          <Form.Control
-            type="tel"
-            placeholder="e.g. 123..."
-            name="workNumber"
-            value={formData.workNumber}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="phone">
-          <Form.Label>Phone:</Form.Label>
-          <Form.Control
-            type="tel"
-            placeholder="e.g. +91 7489###608"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email:</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="example@acropolis.in"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3 d-none" controlId="imageLink">
-          <Form.Control
-            type="text"
-            placeholder="Enter your custom image link"
-            name="imageLink"
-            value={formData.imageLink}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="socialMedia">
-          <Form.Label>Social Media Links:</Form.Label>
-          <Row>
-            <Col xs={12} md={6} className="mb-3">
-              <Form.Control
-                type="text"
-                placeholder="LinkedIn profile URL"
-                name="linkedin"
-                value={formData.socialMedia.linkedin}
-                onChange={handleSocialMediaChange}
-              />
-            </Col>
-            <Col xs={12} md={6} className="mb-3">
-              <Form.Control
-                type="text"
-                placeholder="Personal Website/Portfolio URL"
-                name="portfolio"
-                value={formData.socialMedia.portfolio}
-                onChange={handleSocialMediaChange}
-              />
-            </Col>
-          </Row>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="extraContent">
-          <Form.Label>Extra Content:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter extra content (e.g. Quotations, a message or anything else)"
-            name="extraContent"
-            value={formData.extraContent}
-            onChange={handleChange}
-            style={extraContentStyle}
-          />
-          <div className="mt-2">
-            <ToggleButtonGroup
-              type="checkbox"
-              value={Object.keys(formData.extraContentStyles).filter(
-                (key) => formData.extraContentStyles[key]
-              )}
-              onChange={handleStyleChange}
+      {/* Social Media Links including Portfolio */}
+      <div style={{ marginBottom: "8px" }}>
+        <div style={{ textAlign: "start" }}>
+          {socialMedia.linkedin && (
+            <span
+              style={{
+                margin: "0 5px",
+                display: "inline-block",
+                marginRight: "15px",
+              }}
             >
-              <ToggleButton id="tbg-btn-1" value="bold">
-                Bold
-              </ToggleButton>
-              <ToggleButton id="tbg-btn-2" value="italic">
-                Italic
-              </ToggleButton>
-              <ToggleButton id="tbg-btn-3" value="underline">
-                Underline
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </div>
-        </Form.Group>
+              <a
+                href={socialMedia.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png"
+                  alt="LinkedIn"
+                  width="21"
+                  height="21"
+                />
+              </a>
+            </span>
+          )}
+          {socialMedia.portfolio && (
+            <span
+              style={{
+                margin: "0 5px",
+                display: "inline-block",
+                marginRight: "15px",
+              }}
+            >
+              <a
+                href={socialMedia.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png"
+                  alt="Website"
+                  width="21"
+                  height="21"
+                />
+              </a>
+            </span>
+          )}
+        </div>
+      </div>
 
-        <Button variant="primary" type="submit" className="mb-3">
-          Generate Email Signature
-        </Button>
-      </Form>
+      {/* Extra Content with Horizontal Line below */}
+      {extraContent && (
+        <div style={{ marginBottom: "0", ...extraContentStyle }}>
+          {extraContent}
+          <p style={{ marginTop: "3px", fontWeight: "bold" }}>______________________</p>
+        </div>
+      )}
 
-      {generatedSignature && <GeneratedSignature formData={formData} />}
+      {/* Copy Button */}
+      <div style={{ marginTop: "15px" }}>
+        <button
+          onClick={() => {
+            const signatureHtml = `
+              <div style="font-family: Arial, sans-serif; width: 400px;">
+                <p style="margin-bottom: 3px; font-weight: bold;">______________________</p>
+                <h3 style="margin-bottom: 3px; font-weight: bold;">${name}</h3>
+                ${
+                  position === "Student"
+                    ? `<p style="margin-bottom: 2px;">${position}</p>`
+                    : ""
+                }
+                ${
+                  designation
+                    ? `<p style="margin-bottom: 3px;">${designation}</p>`
+                    : ""
+                }
+                 ${
+                  department
+                    ? `<p style="margin-bottom: 2px;">${department}</p>`
+                    : ""
+                }
+                ${
+                  position === "Student" && section
+                    ? `<p style="margin-bottom: 0;">Section: ${section}</p>`
+                    : ""
+                }
+                <p style="margin-bottom: 3px; font-weight: bold;">______________________</p>
+                ${
+                  workNumber
+                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">W-</span> ${workNumber}</p>`
+                    : ""
+                }
+                ${
+                  phone
+                    ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">P-</span> ${phone}</p>`
+                    : ""
+                }
+                ${
+                  email
+                    ? `<p style="margin-bottom: 0;"><span>✉</span> ${email}</p>`
+                    : ""
+                }
+                <img src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:8px;" />
+                <div style="margin-top: 8px;">
+                  ${
+                    socialMedia.linkedin
+                      ? `<a href="${socialMedia.linkedin}" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="21" height="21" style="margin-right: 10px;" /></a>`
+                      : ""
+                  }
+                  ${
+                    socialMedia.portfolio
+                      ? `<a href="${socialMedia.portfolio}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png" width="21" height="21" style="margin-right: 10px;" /></a>`
+                      : ""
+                  }
+                </div>
+                ${
+                  extraContent
+                    ? `<div style="font-weight: ${extraContentStyles.bold ? 'bold' : 'normal'}; font-style: ${extraContentStyles.italic ? 'italic' : 'normal'}; text-decoration: ${extraContentStyles.underline ? 'underline' : 'none'};">${extraContent}<p style="margin-top: 3px; font-weight: bold;">______________________</p></div>`
+                    : ""
+                }
+              </div>
+            `;
+            copyHtmlToClipboard(signatureHtml);
+            alert("Email signature copied to clipboard!");
+          }}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            transition: "box-shadow 0.3s ease",
+          }}
+          onMouseEnter={(e) =>
+            (e.target.style.boxShadow = "0 0 15px rgba(0, 123, 255, 0.7)")
+          }
+          onMouseLeave={(e) => (e.target.style.boxShadow = "none")}
+        >
+          Copy Email Signature
+        </button>
+      </div>
     </div>
   );
 };
 
-export default EmailSignatureForm;
+export default GeneratedSignature;
