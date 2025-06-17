@@ -180,6 +180,7 @@ const EmailSignatureForm = () => {
             style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             <optgroup label="Select Position">
+            <option value=" "> </option>
             <option value="Student">Student</option>
             <option value="Faculty / Staff Member">Faculty / Staff Member</option>
             </optgroup> 
