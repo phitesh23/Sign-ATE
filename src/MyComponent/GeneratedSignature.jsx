@@ -215,7 +215,7 @@ const GeneratedSignature = ({ formData }) => {
                   }
                   ${
                     socialMedia.portfolio
-                      ? `<a href="${socialMedia.portfolio}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png" width="21" height="21" style="margin-right: 10px;" /></a>`
+                      ? `<a href="${socialMedia.portfolio}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="21" height="21" style="margin-right: 10px;" /></a>`
                       : ""
                   }
                 </div>
