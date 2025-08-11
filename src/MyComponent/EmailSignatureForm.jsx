@@ -74,6 +74,10 @@ const EmailSignatureForm = () => {
     textDecoration: formData.extraContentStyles.underline
       ? "underline"
       : "none",
+    border: "2px solid green",
+    backgroundColor: "#eaffea",
+    minHeight: "100px",
+    padding: "10px",
   };
 
   return (
@@ -105,15 +109,15 @@ const EmailSignatureForm = () => {
           />
         </Form.Group>
 
-<Form.Group className="mb-3" controlId="department">
-  <Form.Label>Department:</Form.Label>
-  <Form.Select
-    name="department"
-    value={formData.department}
-    onChange={handleChange}
-    required
-  >
-    <option value="">Select Department</option>
+        <Form.Group className="mb-3" controlId="department">
+          <Form.Label>Department:</Form.Label>
+          <Form.Select
+            name="department"
+            value={formData.department}
+            onChange={handleChange}
+            required
+          >
+        <option value="">Acropolis Group of Institutuion</option>
     <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
@@ -152,6 +156,7 @@ const EmailSignatureForm = () => {
       <option value="D. PHARM">D. PHARM</option>
       <option value="B. PHARM">B. PHARM</option>
       <option value="M. PHARM">M. PHARM</option>
+      <option value=" Acropolis Food Testing Lab"> Acropolis Food Testing Lab </option>
     </optgroup>
     <optgroup label="Acropolis Institute of Management Studies & Research">
       <option value="BBA">BBA</option>
@@ -167,6 +172,9 @@ const EmailSignatureForm = () => {
       <option value="BBA LLB">BBA LLB</option>
       <option value="LLB">LLB</option>
     </optgroup>
+    <optgroup label="AcroCare">
+      <option value="AcroCare">AcroCare</option>
+    </optgroup>
   </Form.Select>
 </Form.Group>
 
@@ -177,14 +185,10 @@ const EmailSignatureForm = () => {
             value={formData.position}
             onChange={handleChange}
             required
-            style={{ fontFamily: "'Roboto', sans-serif" }}
           >
-            <optgroup label="Select Position">
-            <option value=" "> </option>
+            <option value="">Select Role</option>
             <option value="Student">Student</option>
             <option value="Faculty / Staff Member">Faculty / Staff Member</option>
-            </optgroup> 
-           
           </Form.Select>
         </Form.Group>
 
@@ -282,7 +286,8 @@ const EmailSignatureForm = () => {
         <Form.Group className="mb-3" controlId="extraContent">
           <Form.Label>Extra Content:</Form.Label>
           <Form.Control
-            type="text"
+            as="textarea"
+            rows={4}
             placeholder="Enter extra content (e.g. Quotations, a message or anything else)"
             name="extraContent"
             value={formData.extraContent}
@@ -297,15 +302,9 @@ const EmailSignatureForm = () => {
               )}
               onChange={handleStyleChange}
             >
-              <ToggleButton id="tbg-btn-1" value="bold">
-                Bold
-              </ToggleButton>
-              <ToggleButton id="tbg-btn-2" value="italic">
-                Italic
-              </ToggleButton>
-              <ToggleButton id="tbg-btn-3" value="underline">
-                Underline
-              </ToggleButton>
+              <ToggleButton id="tbg-btn-1" value="bold">Bold</ToggleButton>
+              <ToggleButton id="tbg-btn-2" value="italic">Italic</ToggleButton>
+              <ToggleButton id="tbg-btn-3" value="underline">Underline</ToggleButton>
             </ToggleButtonGroup>
           </div>
         </Form.Group>
