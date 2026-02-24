@@ -97,28 +97,20 @@ const EmailSignatureForm = () => {
           rel="stylesheet"
         />
 
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your full name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            style={{ fontWeight: "bold" }}
-          />
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="department">
-          <Form.Label>Department:</Form.Label>
-          <Form.Select
-            name="department"
-            value={formData.department}
-            onChange={handleChange}
-            required
-          >
-        <option value="Acropolis Group of Institutuions">Acropolis Group of Institutuions</option>
+  <Form.Label>Department:</Form.Label>
+  <Form.Select
+    name="department"
+    value={formData.department}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Department</option>
+
+    <option value="Acropolis Group of Institutions">
+      Acropolis Group of Institutions
+    </option>
+
     <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
@@ -132,9 +124,15 @@ const EmailSignatureForm = () => {
       <option value="CSE Artificial Intelligence & Machine Learning (AI&ML)">
         CSE Artificial Intelligence & Machine Learning (AI&ML)
       </option>
-      <option value="CSE Data Science (DS)">CSE Data Science (DS)</option>
-      <option value="CSE Cyber Security">CSE Cyber Security</option>
-      <option value="CSE Indian Language">CSE Indian Language</option>
+      <option value="CSE Data Science (DS)">
+        CSE Data Science (DS)
+      </option>
+      <option value="CSE Cyber Security">
+        CSE Cyber Security
+      </option>
+      <option value="CSE Indian Language">
+        CSE Indian Language
+      </option>
       <option value="Electronics & Communication (EC)">
         Electronics & Communication (EC)
       </option>
@@ -144,21 +142,30 @@ const EmailSignatureForm = () => {
       <option value="Electronics & Communication (Advanced Communications)">
         Electronics & Communication (Advanced Communications)
       </option>
-      <option value="Civil Engineering">Civil Engineering</option>
-      <option value="Mechanical Engineering">Mechanical Engineering</option>
+      <option value="Civil Engineering">
+        Civil Engineering
+      </option>
+      <option value="Mechanical Engineering">
+        Mechanical Engineering
+      </option>
       <option value="Faculty of Computer Application (FCA)">
         Faculty of Computer Application (FCA)
       </option>
     </optgroup>
+
     <optgroup label="Acropolis Faculty of Management & Research">
       <option value="MBA">MBA</option>
     </optgroup>
+
     <optgroup label="Acropolis Institute of Pharmaceutical Education & Research">
       <option value="D. PHARM">D. PHARM</option>
       <option value="B. PHARM">B. PHARM</option>
       <option value="M. PHARM">M. PHARM</option>
-      <option value=" Acropolis Food Testing Lab"> Acropolis Food Testing Lab </option>
+      <option value="Acropolis Food Testing Lab">
+        Acropolis Food Testing Lab
+      </option>
     </optgroup>
+
     <optgroup label="Acropolis Institute of Management Studies & Research">
       <option value="BBA">BBA</option>
       <option value="B.COM">B.COM</option>
@@ -168,11 +175,13 @@ const EmailSignatureForm = () => {
       <option value="M.COM">M.COM</option>
       <option value="MA">MA</option>
     </optgroup>
+
     <optgroup label="Acropolis Institute of Law">
       <option value="B.A. LLB">B.A. LLB</option>
       <option value="BBA LLB">BBA LLB</option>
       <option value="LLB">LLB</option>
     </optgroup>
+
     <optgroup label="AcroCare">
       <option value="AcroCare">AcroCare</option>
     </optgroup>
@@ -284,14 +293,14 @@ const EmailSignatureForm = () => {
           </Row>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="extraContent">
-          <Form.Label>Extra Content:</Form.Label>
+        <Form.Group className="mb-3" controlId="Additional Information">
+         <Form.Label>Additional Information:</Form.Label>
           <Form.Control
             as="textarea"
             rows={4}
-            placeholder="Enter extra content (e.g. Quotations, a message or anything else)"
-            name="extraContent"
-            value={formData.extraContent}
+            placeholder="Additional Information here (e.g. Quotations, a message or anything else)"
+            name="Additional Information"
+            value={formData.AdditionalInformation}
             onChange={handleChange}
             style={extraContentStyle}
           />
