@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Form,
@@ -96,6 +95,19 @@ const EmailSignatureForm = () => {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
         />
+
+        <Form.Group className="mb-3" controlId="name">
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter your full name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            style={{ fontWeight: "bold" }}
+          />
+        </Form.Group>
 
         <Form.Group className="mb-3" controlId="department">
   <Form.Label>Department:</Form.Label>
