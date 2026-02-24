@@ -1,4 +1,4 @@
-npm install react-quill
+
 import React, { useState } from "react";
 import {
   Form,
