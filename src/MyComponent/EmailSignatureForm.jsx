@@ -1,3 +1,4 @@
+npm install react-quill
 import React, { useState } from "react";
 import {
   Form,
@@ -117,7 +118,7 @@ const EmailSignatureForm = () => {
             onChange={handleChange}
             required
           >
-        <option value="">Acropolis Group of Institutuion</option>
+        <option value="Acropolis Group of Institutuions">Acropolis Group of Institutuions</option>
     <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
