@@ -305,17 +305,17 @@ const EmailSignatureForm = () => {
           </Row>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="Additional Information">
-         <Form.Label>Additional Information:</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={4}
-            placeholder="Additional Information here (e.g. Quotations, a message or anything else)"
-            name="Additional Information"
-            value={formData.AdditionalInformation}
-            onChange={handleChange}
-            style={extraContentStyle}
-          />
+<Form.Group className="mb-3" controlId="extraContent">
+<Form.Label>Additional Information:</Form.Label>
+<Form.Control
+  as="textarea"
+  rows={4}
+  placeholder="Additional Information here (e.g. Quotations, a message or anything else)"
+  name="extraContent"
+  value={formData.extraContent}
+  onChange={handleChange}
+  style={extraContentStyle}
+/>
           <div className="mt-2">
             <ToggleButtonGroup
               type="checkbox"
