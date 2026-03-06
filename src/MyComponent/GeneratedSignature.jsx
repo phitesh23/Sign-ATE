@@ -96,19 +96,34 @@ import React from "react";
   )}
   </div>
  
-
-  {/* Logo */}
-  <div style={{ marginBottom: "8px" }}>
+{/* Logo */}
+<div style={{ marginBottom: "8px" }}>
   <img
-  src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"
-  alt={name}
-  width="80%"
-  height="80"
-  style={{
-  display: "block",
-  }}
+    src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"
+    alt={name}
+    width="80%"
+    height="80"
+    style={{
+      display: "block",
+    }}
   />
-  </div>
+
+  {/* Visit Us Link */}
+  <p style={{ marginTop: "4px" }}>
+    <a
+      href="https://aitr.ac.in/"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        color: "#343579",
+        fontWeight: "bold",
+        textDecoration: "none"
+      }}
+    >
+      Visit Us
+    </a>
+  </p>
+</div>
  
 
   {/* Social Media Links including Portfolio */}
@@ -215,8 +230,12 @@ import React from "react";
   ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">M-</span> ${email}</p>`
   : ""
   }
-  <img src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg" alt="${name}" width="212" height="50" style="display: block; text-align: left; margin-top:8px;" />
-  <div style="margin-top: 8px;">
+  <img src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"  <p style="margin-top:4px;">
+  <a href="https://aitr.ac.in/" target="_blank"
+  style="color:#343579;font-weight:bold;text-decoration:none;">
+  Visit Us
+  </a>
+</p>
   ${
   socialMedia.linkedin
   ? `<a href="${socialMedia.linkedin}" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="21" height="21" style="margin-right: 10px;" /></a>`
