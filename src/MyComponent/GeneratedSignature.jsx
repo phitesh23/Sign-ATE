@@ -1,282 +1,232 @@
 import React from "react";
- 
 
- const GeneratedSignature = ({ formData }) => {
+const GeneratedSignature = ({ formData }) => {
   const {
-  name,
-  department,
-  section,
-  workNumber,
-  phone,
-  email,
-  socialMedia,
-  extraContent,
-  position,
-  designation,
-  extraContentStyles
+    name,
+    department,
+    section,
+    workNumber,
+    phone,
+    email,
+    socialMedia,
+    extraContent,
+    position,
+    designation,
+    extraContentStyles,
   } = formData;
- 
+
+  // ✅ designation full form
+  const fullDesignation =
+    designation === "Dr."
+      ? "Doctor"
+      : designation === "Prof."
+      ? "Professor"
+      : designation === "HOD"
+      ? "Head Of Department"
+      : designation;
 
   const copyHtmlToClipboard = (html) => {
-  const tempElement = document.createElement("div");
-  tempElement.innerHTML = html;
-  document.body.appendChild(tempElement);
-  const range = document.createRange();
-  range.selectNode(tempElement);
-  const selection = window.getSelection();
-  selection.removeAllRanges();
-  selection.addRange(range);
-  document.execCommand("copy");
-  document.body.removeChild(tempElement);
+    const tempElement = document.createElement("div");
+    tempElement.innerHTML = html;
+    document.body.appendChild(tempElement);
+
+    const range = document.createRange();
+    range.selectNode(tempElement);
+
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    document.execCommand("copy");
+
+    document.body.removeChild(tempElement);
   };
- 
 
   const extraContentStyle = {
-  fontWeight: extraContentStyles.bold ? "bold" : "normal",
-  fontStyle: extraContentStyles.italic ? "italic" : "normal",
-  textDecoration: extraContentStyles.underline ? "underline" : "none",
+    fontWeight: extraContentStyles.bold ? "bold" : "normal",
+    fontStyle: extraContentStyles.italic ? "italic" : "normal",
+    textDecoration: extraContentStyles.underline ? "underline" : "none",
   };
- 
 
   return (
-  <div
-  style={{
-  fontFamily: "Arial, sans-serif",
-  width: "400px",
-  margin: "50px auto",
-  padding: "20px",
-  boxShadow: "0 4px 8px #343579",
-  }}
-  >
-  {/* Horizontal Line before Name */}
-  <div style={{ marginBottom: "8px" }}>
-  <p style={{ marginBottom: "3px", fontWeight: "bold" }}>______________________</p>
-  <h3 style={{ marginBottom: "3px", fontWeight: "bold", color: "#343579" }}>{name}</h3>
-  {position === "Student" && (
-  <p style={{ marginBottom: "2px" }}>{position}</p>
-  )}
-  {designation && (
-  <p style={{ marginBottom: "3px" }}>{designation}</p>
-  )}
-  {department && (
-  <p style={{ marginBottom: "2px" }}>{department}</p>
-  )}
-  {position === "Student" && (
-  <p style={{ marginBottom: "0" }}>Section: {section}</p>
-  )}
-  </div>
- 
-
-  {/* Horizontal Line before Work Number */}
-  <div style={{ marginBottom: "8px" }}>
-  <p style={{ marginBottom: "3px", fontWeight: "bold" }}>______________________</p>
-  {workNumber && (
-  <p
-  style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
-  >
-  <span style={{ fontSize: "16px", fontWeight: "bold" }}>W-</span>
-  <span style={{ marginLeft: "5px" }}>{workNumber}</span>
-  </p>
-  )}
-  {phone && (
-  <p
-  style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
-  >
-  <span style={{ fontSize: "16px", fontWeight: "bold" }}>P-</span>
-  <span style={{ marginLeft: "5px" }}>{phone}</span>
-  </p>
-  )}
-  {email && (
-  <p
-  style={{ marginBottom: "0", display: "flex", alignItems: "center" }}
-  >
-  <span style={{ fontSize: "16px", fontWeight: "bold"}}>M-</span>
-  <span style={{ marginLeft: "5px" }}>{email}</span>
-  </p>
-  )}
-  </div>
- 
-{/* Logo */}
-<div style={{ marginBottom: "8px" }}>
-  <img
-    src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"
-    alt={name}
-    width="80%"
-    height="80"
-    style={{
-      display: "block",
-    }}
-  />
-
-  {/* Visit Us Link */}
-  <p style={{ marginTop: "4px" }}>
-    <a
-      href="https://aitr.ac.in/"
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       style={{
-        color: "#343579",
-        fontWeight: "bold",
-        textDecoration: "none"
+        fontFamily: "Arial, sans-serif",
+        width: "400px",
+        margin: "50px auto",
+        padding: "20px",
+        boxShadow: "0 4px 8px #343579",
       }}
     >
-      Visit Us
-    </a>
-  </p>
-</div>
- 
+      {/* Name */}
+      <div style={{ marginBottom: "8px" }}>
+        <p style={{ marginBottom: "3px", fontWeight: "bold" }}>
+          ______________________
+        </p>
 
-  {/* Social Media Links including Portfolio */}
-  <div style={{ marginBottom: "8px" }}>
-  <div style={{ textAlign: "start" }}>
-  {socialMedia.linkedin && (
-  <span
-  style={{
-  margin: "0 5px",
-  display: "inline-block",
-  marginRight: "15px",
-  }}
-  >
-  <a
-  href={socialMedia.linkedin}
-  target="_blank"
-  rel="noopener noreferrer"
-  >
-  <img
-  src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png"
-  alt="LinkedIn"
-  width="21"
-  height="21"
-  />
-  </a>
-  </span>
-  )}
-  {socialMedia.portfolio && (
-  <span
-  style={{
-  margin: "0 5px",
-  display: "inline-block",
-  marginRight: "15px",
-  }}
-  >
-  <a
-  href={socialMedia.portfolio}
-  target="_blank"
-  rel="noopener noreferrer"
-  >
-  <img
-  src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png"
-  alt="Website"
-  width="21"
-  height="21"
-  />
-  </a>
-  </span>
-  )}
-  </div>
-  </div>
- 
+        <h3
+          style={{
+            marginBottom: "3px",
+            fontWeight: "bold",
+            color: "#343579",
+          }}
+        >
+          {name}
+        </h3>
 
-  {/* Extra Content with Horizontal Line below */}
-  {extraContent && (
-  <div style={{ marginBottom: "0", ...extraContentStyle }}>
-  {extraContent}
-  <p style={{ marginTop: "3px", fontWeight: "bold" }}>______________________</p>
-  </div>
-  )}
- 
+        {position && <p>{position}</p>}
 
-  {/* Copy Button */}
-  <div style={{ marginTop: "15px" }}>
-  <button
-  onClick={() => {
-  const signatureHtml = `
-  <div style="font-family: Arial, sans-serif; width: 400px;">
-  <p style="margin-bottom: 3px; font-weight: bold;">______________________</p>
-  <h3 style="margin-bottom: 3px; font-weight: bold; color: #343579;">${name}</h3>
-  ${
-  position === "Student"
-  ? `<p style="margin-bottom: 2px;">${position}</p>`
-  : ""
-  }
-  ${
-  designation
-  ? `<p style="margin-bottom: 3px;">${designation}</p>`
-  : ""
-  }
-  ${
-  department
-  ? `<p style="margin-bottom: 2px;">${department}</p>`
-  : ""
-  }
-  ${
-  position === "Student" && section
-  ? `<p style="margin-bottom: 0;">Section: ${section}</p>`
-  : ""
-  }
-  <p style="margin-bottom: 3px; font-weight: bold;">______________________</p>
-  ${
-  workNumber
-  ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">W-</span> ${workNumber}</p>`
-  : ""
-  }
-  ${
-  phone
-  ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">P-</span> ${phone}</p>`
-  : ""
-  }
-  ${
-  email
-  ? `<p style="margin-bottom: 0;"><span style="font-weight: bold;">M-</span> ${email}</p>`
-  : ""
-  }
-  <img src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"  <p style="margin-top:4px;">
-  <a href="https://aitr.ac.in/" target="_blank"
-  style="color:#343579;font-weight:bold;text-decoration:none;">
-  Visit Us
-  </a>
+        {fullDesignation && <p>{fullDesignation}</p>}
+
+        {department && <p>{department}</p>}
+
+        {section && <p>Section: {section}</p>}
+      </div>
+
+      {/* Numbers */}
+      <div style={{ marginBottom: "8px" }}>
+        <p style={{ marginBottom: "3px", fontWeight: "bold" }}>
+          ______________________
+        </p>
+
+        {workNumber && (
+          <p>
+            <b>W-</b> {workNumber}
+          </p>
+        )}
+
+        {phone && (
+          <p>
+            <b>P-</b> {phone}
+          </p>
+        )}
+
+        {email && (
+          <p>
+            <b>M-</b> {email}
+          </p>
+        )}
+      </div>
+
+      {/* Logo */}
+      <div style={{ marginBottom: "8px" }}>
+        <img
+          src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg"
+          alt="logo"
+          width="80%"
+          height="80"
+        />
+
+        <p style={{ marginTop: "4px" }}>
+          <a
+            href="https://aitr.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#343579",
+              fontWeight: "bold",
+              textDecoration: "none",
+            }}
+          >
+            Visit Us
+          </a>
+        </p>
+      </div>
+
+      {/* Social */}
+      <div style={{ marginBottom: "8px" }}>
+        {socialMedia.linkedin && (
+          <a href={socialMedia.linkedin} target="_blank">
+            <img
+              src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png"
+              width="21"
+              height="21"
+              alt="linkedin"
+            />
+          </a>
+        )}
+
+        {socialMedia.portfolio && (
+          <a href={socialMedia.portfolio} target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png"
+              width="21"
+              height="21"
+              alt="web"
+            />
+          </a>
+        )}
+      </div>
+
+      {/* Extra */}
+      {extraContent && (
+        <div style={extraContentStyle}>
+          {extraContent}
+          <p style={{ fontWeight: "bold" }}>
+            ______________________
+          </p>
+        </div>
+      )}
+
+      {/* Copy Button */}
+      <button
+        onClick={() => {
+          const signatureHtml = `
+<div style="font-family:Arial;width:400px">
+
+<p><b>______________________</b></p>
+
+<h3 style="color:#343579">${name}</h3>
+
+${position ? `<p>${position}</p>` : ""}
+
+${fullDesignation ? `<p>${fullDesignation}</p>` : ""}
+
+${department ? `<p>${department}</p>` : ""}
+
+${section ? `<p>Section: ${section}</p>` : ""}
+
+<p><b>______________________</b></p>
+
+${workNumber ? `<p><b>W-</b> ${workNumber}</p>` : ""}
+
+${phone ? `<p><b>P-</b> ${phone}</p>` : ""}
+
+${email ? `<p><b>M-</b> ${email}</p>` : ""}
+
+<img src="https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg" width="300"/>
+
+<p>
+<a href="https://aitr.ac.in/">Visit Us</a>
 </p>
-  ${
-  socialMedia.linkedin
-  ? `<a href="${socialMedia.linkedin}" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="21" height="21" style="margin-right: 10px;" /></a>`
-  : ""
-  }
-  ${
-  socialMedia.portfolio
-  ? `<a href="${socialMedia.portfolio}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="21" height="21" style="margin-right: 10px;" /></a>`
-  : ""
-  }
-  </div>
-  ${
-  extraContent
-  ? `<div style="font-weight: ${extraContentStyles.bold ? 'bold' : 'normal'}; font-style: ${extraContentStyles.italic ? 'italic' : 'normal'}; text-decoration: ${extraContentStyles.underline ? 'underline' : 'none'};">${extraContent}<p style="margin-top: 3px; font-weight: bold;">______________________</p></div>`
-  : ""
-  }
-  </div>
-  `;
-  copyHtmlToClipboard(signatureHtml);
-  alert("Email signature copied to clipboard!");
-  }}
-  style={{
-  padding: "10px 20px",
-  backgroundColor: "#007bff",
-  color: "white",
-  border: "none",
-  borderRadius: "5px",
-  cursor: "pointer",
-  transition: "box-shadow 0.3s ease",
-  }}
-  onMouseEnter={(e) =>
-  (e.target.style.boxShadow = "0 0 15px rgba(0, 123, 255, 0.7)")
-  }
-  onMouseLeave={(e) => (e.target.style.boxShadow = "none")}
-  >
-  Copy Email Signature
-  </button>
-  </div>
-  </div>
-  );
- };
- 
 
- export default GeneratedSignature;
+${
+  socialMedia.linkedin
+    ? `<a href="${socialMedia.linkedin}">
+<img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="21"/>
+</a>`
+    : ""
+}
+
+${
+  socialMedia.portfolio
+    ? `<a href="${socialMedia.portfolio}">
+<img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="21"/>
+</a>`
+    : ""
+}
+
+</div>
+`;
+
+          copyHtmlToClipboard(signatureHtml);
+          alert("Copied");
+        }}
+      >
+        Copy Email Signature
+      </button>
+    </div>
+  );
+};
+
+export default GeneratedSignature;
