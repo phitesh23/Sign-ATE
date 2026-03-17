@@ -122,6 +122,27 @@ const EmailSignatureForm = () => {
     <option value="Acropolis Group of Institutions">
       Acropolis Group of Institutions
     </option>
+    
+    <option value="Acropolis Institute of Technology & Research">
+     Acropolis Institute of Technology & Research
+    </option>
+
+    <option value="Acropolis Institute of Pharmaceutical, Education and Research">
+     Acropolis Institute of Pharmaceutical, Education and Research
+    </option>
+
+    <option value="Acropolis Institute of Management, Studies and Research">
+     Acropolis Institute of Management, Studies and Research
+    </option>
+
+    <option value="Acropolis Institute of Law">
+     Acropolis Institute of Law
+    </option>
+
+    <option value="Acropolis Faculty of Management and Research">
+     Acropolis Faculty of Management and Research
+    </option>
+    
 
     <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
@@ -209,8 +230,8 @@ const EmailSignatureForm = () => {
             required
           >
             <option value="">Select Role</option>
-            <option value="Student">Student</option>
-            <option value="Faculty / Staff Member">Faculty / Staff Member</option>
+            <option value="Faculty">Faculty</option>
+            <option value="Staff Member">Staff Member</option>
           </Form.Select>
         </Form.Group>
 
@@ -225,16 +246,19 @@ const EmailSignatureForm = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="designation">
-          <Form.Label>Designation:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your designation"
-            name="designation"
-            value={formData.designation}
-            onChange={handleChange}
-          />
-        </Form.Group>
+       <Form.Group className="mb-3" controlId="designation">
+  <Form.Label>Designation:</Form.Label>
+  <Form.Select
+    name="designation"
+    value={formData.designation}
+    onChange={handleChange}
+  >
+    <option value="">Select designation</option>
+    <option value="Dr.">Dr.</option>
+    <option value="Prof.">Prof.</option>
+    <option value="HOD">HOD</option>
+  </Form.Select>
+</Form.Group>
 
         <Form.Group className="mb-3" controlId="workNumber">
           <Form.Label>Work Number:</Form.Label>
