@@ -34,7 +34,9 @@ const GeneratedSignature = ({ formData }) => {
 
 <p><b>______________________</b></p>
 
-<h3 style="color:#343579">${name || ""}</h3>
+<h3 style={{ color: "#343579", fontWeight: "bold" }}>
+  {name}
+</h3>
 
 ${position ? `<p>${position}</p>` : ""}
 
@@ -107,7 +109,9 @@ ${
     >
       <p><b>______________________</b></p>
 
-      <h3 style={{ color: "#343579" }}>{name}</h3>
+      <h3 style="color:#343579;font-weight:bold;">
+${name || ""}
+</h3>
 
       {position && <p>{position}</p>}
 
