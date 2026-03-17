@@ -98,6 +98,7 @@ ${
   };
 
   return (
+    const html = `
     <div
       style={{
         fontFamily: "Arial",
