@@ -3,6 +3,7 @@ import React from "react";
 const GeneratedSignature = ({ formData }) => {
   const {
     name,
+    institution,   // ✅ ADDED
     department,
     section,
     workNumber,
@@ -15,7 +16,7 @@ const GeneratedSignature = ({ formData }) => {
     extraContentStyles,
   } = formData;
 
-  //  convert designation
+  // convert designation
   let fullDesignation = "";
   if (designation === "Dr.") fullDesignation = "Doctor";
   else if (designation === "Prof.") fullDesignation = "Professor";
@@ -39,6 +40,8 @@ const GeneratedSignature = ({ formData }) => {
 ${position ? `<p>${position}</p>` : ""}
 
 ${fullDesignation ? `<p>${fullDesignation}</p>` : ""}
+
+${institution ? `<p>${institution}</p>` : ""}  <!-- ✅ ADDED -->
 
 ${department ? `<p>${department}</p>` : ""}
 
@@ -112,6 +115,8 @@ ${
       {position && <p>{position}</p>}
 
       {fullDesignation && <p>{fullDesignation}</p>}
+
+      {institution && <p>{institution}</p>} {/* ✅ ADDED */}
 
       {department && <p>{department}</p>}
 
