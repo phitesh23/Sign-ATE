@@ -236,6 +236,16 @@ const EmailSignatureForm = () => {
         </Form.Group>
 
         {/* Contact */}
+        <Form.Group className="mb-3" controlId="workNumber">
+          <Form.Label>Work Number:</Form.Label>
+          <Form.Control
+            type="tel"
+            placeholder="e.g. 123..."
+            name="workNumber"
+            value={formData.workNumber}
+            onChange={handleChange}
+          />
+        </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Phone:</Form.Label>
           <Form.Control
