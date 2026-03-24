@@ -13,6 +13,7 @@ import GeneratedSignature from "./GeneratedSignature";
 const EmailSignatureForm = () => {
   const [formData, setFormData] = useState({
     name: "",
+    institution: "", 
     department: "",
     position: "",
     section: "",
@@ -108,26 +109,24 @@ const EmailSignatureForm = () => {
             style={{ fontWeight: "bold" }}
           />
         </Form.Group>
-
-        <Form.Group className="mb-3" controlId="department">
-  <Form.Label>Department:</Form.Label>
+        <Form.Group className="mb-3" controlId="institution">
+  <Form.Label>Institution:</Form.Label>
   <Form.Select
-    name="department"
-    value={formData.department}
+    name="institution"
+    value={formData.institution}
     onChange={handleChange}
     required
   >
-    <option value="">Select Department</option>
+    <option value="">Select Institution</option>
 
     <option value="Acropolis Group of Institutions">
       Acropolis Group of Institutions
     </option>
-    
-    <option value="Acropolis Institute of Technology & Research">
-     Acropolis Institute of Technology & Research
-    </option>
 
-    <option value="Acropolis Institute of Pharmaceutical, Education and Research">
+    <option value="Acropolis Institute of Technology & Research">
+      Acropolis Institute of Technology & Research
+    </option>
+        <option value="Acropolis Institute of Pharmaceutical, Education and Research">
      Acropolis Institute of Pharmaceutical, Education and Research
     </option>
 
@@ -142,8 +141,18 @@ const EmailSignatureForm = () => {
     <option value="Acropolis Faculty of Management and Research">
      Acropolis Faculty of Management and Research
     </option>
-    
+  </Form.Select>
+</Form.Group>
 
+        <Form.Group className="mb-3" controlId="department">
+  <Form.Label>Department:</Form.Label>
+  <Form.Select
+    name="department"
+    value={formData.department}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Department</option>
     <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
