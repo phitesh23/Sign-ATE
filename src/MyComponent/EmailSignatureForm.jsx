@@ -250,6 +250,7 @@ const EmailSignatureForm = () => {
           <Form.Label>Phone:</Form.Label>
           <Form.Control
             type="tel"
+            placeholder="e.g. +91 1234567890"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
