@@ -31,7 +31,7 @@ const GeneratedSignature = ({ formData }) => {
   };
 
   const copyHtmlToClipboard = () => {
-    const html = `
+const html = `
 <div style="font-family:Arial;width:400px">
 
 <p><b>______________________</b></p>
@@ -42,9 +42,9 @@ ${position ? `<p>${position}</p>` : ""}
 
 ${fullDesignation ? `<p>${fullDesignation}</p>` : ""}
 
-${department ? `<p>${department}</p>` : ""}
+${institution ? `<p>${institution}</p>` : ""}
 
-${section ? `<p>Section: ${section}</p>` : ""}
+${department ? `<p>${department}</p>` : ""}
 
 <p><b>______________________</b></p>
 
@@ -59,7 +59,7 @@ ${email ? `<p><b>M-</b> ${email}</p>` : ""}
 <p>
 <a href="https://aitr.ac.in/">Visit Us</a>
 </p>
-
+`;
 ${
   socialMedia.linkedin
     ? `<a href="${socialMedia.linkedin}">
