@@ -3,9 +3,9 @@ import React from "react";
 const GeneratedSignature = ({ formData }) => {
   const {
     name,
-    institution,   // ✅ ADDED
+    institution,   
     department,
-    section,
+    //section,
     workNumber,
     phone,
     email,
@@ -120,7 +120,7 @@ ${
 
       {department && <p>{department}</p>}
 
-      {section && <p>Section: {section}</p>}
+     {section && <p>Section: {section}</p>}
 
       <p><b>______________________</b></p>
 
