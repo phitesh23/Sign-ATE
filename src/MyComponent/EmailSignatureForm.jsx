@@ -295,32 +295,35 @@ const EmailSignatureForm = () => {
         </Form.Group>
 
         {/* Extra Content */}
-        <Form.Group className="mb-3">
-          <Form.Label>Additional Info:</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={3}
-            name="extraContent"
-            value={formData.extraContent}
-            onChange={handleChange}
-            style={extraContentStyle}
-          />
-
-          <ToggleButtonGroup
-            type="checkbox"
-            value={Object.keys(formData.extraContentStyles).filter(
-              (key) => formData.extraContentStyles[key]
-            )}
-            onChange={handleStyleChange}
-            className="mt-2"
-          >
-            <ToggleButton value="bold">Bold</ToggleButton>
-            <ToggleButton value="italic">Italic</ToggleButton>
-            <ToggleButton value="underline">Underline</ToggleButton>
-          </ToggleButtonGroup>
+       <Form.Group className="mb-3" controlId="extraContent">
+<Form.Label>Additional Information:</Form.Label>
+<Form.Control
+  as="textarea"
+  rows={4}
+  placeholder="Additional Information here (e.g. Quotations, a message or anything else)"
+  name="extraContent"
+  value={formData.extraContent}
+  onChange={handleChange}
+  style={extraContentStyle}
+/>
+          <div className="mt-2">
+            <ToggleButtonGroup
+              type="checkbox"
+              value={Object.keys(formData.extraContentStyles).filter(
+                (key) => formData.extraContentStyles[key]
+              )}
+              onChange={handleStyleChange}
+            >
+              <ToggleButton id="tbg-btn-1" value="bold">Bold</ToggleButton>
+              <ToggleButton id="tbg-btn-2" value="italic">Italic</ToggleButton>
+              <ToggleButton id="tbg-btn-3" value="underline">Underline</ToggleButton>
+            </ToggleButtonGroup>
+          </div>
         </Form.Group>
 
-        <Button type="submit">Generate Signature</Button>
+        <Button variant="primary" type="submit" className="mb-3">
+          Generate Email Signature
+        </Button>
       </Form>
 
       {generatedSignature && <GeneratedSignature formData={formData} />}
