@@ -16,7 +16,7 @@ const EmailSignatureForm = () => {
     institution: "", 
     department: "",
     position: "",
-    section: "",
+    //section: "",
     designation: "",
     workNumber: "",
     phone: "",
@@ -232,17 +232,12 @@ const EmailSignatureForm = () => {
 
         <Form.Group className="mb-3" controlId="position">
           <Form.Label>Role:</Form.Label>
-          <Form.Select
+          <Form.Control
+            type="text"
             name="position"
             value={formData.position}
             onChange={handleChange}
-            required
           >
-            <option value="">Select Role</option>
-            <option value="Faculty">Faculty</option>
-            <option value="Staff Member">Staff Member</option>
-          </Form.Select>
-        </Form.Group>
 
         <Form.Group className="mb-3" controlId="section">
           <Form.Label>Section:</Form.Label>
