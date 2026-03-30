@@ -33,7 +33,27 @@ const GeneratedSignature = ({ formData }) => {
     },
     AGI: {
       link: "https://acropolis.in/",
-      logo: "https://acropolis.in/wp-content/uploads/2021/06/logo.png",
+      logo: "https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg",
+    },
+    AFMR: {
+      link: "https://afmr.ac.in/",
+      logo: "https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg",
+    },
+    AIPER: {
+      link: "https://aiper.ac.in/",
+      logo: "https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg",
+    },
+    AIMSR: {
+      link: "https://aimsr.ac.in/",
+      logo: "https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg",
+    },
+    AIL: {
+      link: "https://www.acropolislaw.in/",
+      logo: "https://aimsr.ac.in/wp-content/uploads/2023/03/AITR-logo.jpg",
+    },
+    FTL: {
+      link: "https://acrolabs.in/",
+      logo: "https://acrolabs.in/wp-content/uploads/2023/08/Acro_White-Logo-02-300x72.png",
     },
   };
 
