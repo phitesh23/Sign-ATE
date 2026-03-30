@@ -67,7 +67,7 @@ const GeneratedSignature = ({ formData }) => {
   };
 
   const baseText = {
-    margin: "3px 0",   // 🔥 reduces spacing
+    margin: "3px 0",   
     lineHeight: "1.2",
   };
 
@@ -110,6 +110,10 @@ ${socialMedia.linkedin ? `
 
 ${socialMedia.portfolio ? `
 <a href="${socialMedia.portfolio}">
+<img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="18"/>
+</a>` : ""}
+${socialMedia.otherlinks ? `
+<a href="${socialMedia.otherlinks}">
 <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="18"/>
 </a>` : ""}
 
@@ -164,7 +168,7 @@ ${socialMedia.portfolio ? `
       <img src={selectedCollege.logo} width="200" alt="" />
 
       <p style={baseText}>
-        <a href={selectedCollege.link}>Visit Us</a>
+        <a href={selectedCollege.link}>our website</a>
       </p>
 
       {socialMedia.linkedin && (
@@ -175,6 +179,11 @@ ${socialMedia.portfolio ? `
 
       {socialMedia.portfolio && (
         <a href={socialMedia.portfolio}>
+          <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="18" alt="" />
+        </a>
+      )}
+      {socialMedia.otherlinks && (
+        <a href={socialMedia.otherlinks}>
           <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="18" alt="" />
         </a>
       )}
