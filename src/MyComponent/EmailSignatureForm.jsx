@@ -117,8 +117,8 @@ const [formData, setFormData] = useState({
             <option value="">Select Institution</option>
             <option value="Acropolis Group of Institutions">Acropolis Group of Institutions</option>
             <option value="Acropolis Institute of Technology & Research">Acropolis Institute of Technology & Research</option>
-            <option value="Acropolis Institute of Pharmaceutical, Education and Research">Acropolis Institute of Pharmaceutical, Education and Research</option>
-            <option value="Acropolis Institute of Management, Studies and Research">Acropolis Institute of Management, Studies and Research</option>
+            <option value="Acropolis Institute of Pharmaceutical Education and Research">Acropolis Institute of Pharmaceutical Education and Research</option>
+            <option value="Acropolis Institute of Management Studies and Research">Acropolis Institute of Management Studies and Research</option>
             <option value="Acropolis Institute of Law">Acropolis Institute of Law</option>
             <option value="Acropolis Faculty of Management and Research">Acropolis Faculty of Management and Research</option>
           </Form.Select>
@@ -233,7 +233,7 @@ const [formData, setFormData] = useState({
             <option value="">Select designation</option>
             <option value="HOD">HOD</option>
             <option value="Prof.">Prof.</option>
-            <option value="Asistent Prof.">Asistent Prof..</option>
+            <option value="Assistant Prof.">Assistant Prof.</option>
             <option value="Lab Technician">Lab Technician</option>
             <option value="Registrar">Registrar</option>
           </Form.Select>
