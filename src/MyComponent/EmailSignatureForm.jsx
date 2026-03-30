@@ -231,9 +231,10 @@ const [formData, setFormData] = useState({
             onChange={handleChange}
           >
             <option value="">Select designation</option>
+            <option value="Director">Director</option>
             <option value="HOD">HOD</option>
             <option value="Prof.">Prof.</option>
-            <option value="Assistant Prof.">Assistant Prof.</option>
+            <option value="Assistant Professor">Assistant Professor</option>
             <option value="Lab Technician">Lab Technician</option>
             <option value="Registrar">Registrar</option>
           </Form.Select>
@@ -280,6 +281,7 @@ const [formData, setFormData] = useState({
     value={formData.college}
     onChange={handleChange}
   >
+    <option value="">Select Institution For Website</option>
     <option value="AGI">AGI</option>
     <option value="AITR">AITR</option>
     <option value="AIMSR">AIMSR</option>
