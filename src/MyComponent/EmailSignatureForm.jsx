@@ -116,7 +116,7 @@ const [formData, setFormData] = useState({
           >
             <option value="">Select Institution</option>
             <option value="Acropolis Group of Institutions">Acropolis Group of Institutions</option>
-            <option value="Acropolis Institute of Technology & Research">Acropolis Institute of Technology & Research</option>
+            <option value="Acropolis Institute of Technology and Research">Acropolis Institute of Technology and Research</option>
             <option value="Acropolis Institute of Pharmaceutical Education and Research">Acropolis Institute of Pharmaceutical Education and Research</option>
             <option value="Acropolis Institute of Management Studies and Research">Acropolis Institute of Management Studies and Research</option>
             <option value="Acropolis Institute of Law">Acropolis Institute of Law</option>
@@ -141,11 +141,11 @@ const [formData, setFormData] = useState({
       <option value="Information Technology (IT)">
         Information Technology (IT)
       </option>
-      <option value="Computer Science & Information Technology (CS&IT)">
-        Computer Science & Information Technology (CS&IT)
+      <option value="Computer Science Information Technology (CSIT)">
+        Computer Science & Information Technology (CSIT)
       </option>
-      <option value="CSE Artificial Intelligence & Machine Learning (AI&ML)">
-        CSE Artificial Intelligence & Machine Learning (AI&ML)
+      <option value="CSE Artificial Intelligence & Machine Learning (AIML)">
+        CSE Artificial Intelligence & Machine Learning (AIML)
       </option>
       <option value="CSE Data Science (DS)">
         CSE Data Science (DS)
