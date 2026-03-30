@@ -11,27 +11,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import GeneratedSignature from "./GeneratedSignature";
 
 const EmailSignatureForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    institution: "",
-    department: "",
-    position: "",
-    designation: "",
-    workNumber: "",
-    phone: "",
-    email: "",
-    socialMedia: {
-      linkedin: "",
-      portfolio: "",
-    },
-    extraContent: "",
-    extraContentStyles: {
-      bold: false,
-      italic: false,
-      underline: false,
-    },
-    imageLink: "",
-  });
+const [formData, setFormData] = useState({
+  name: "",
+  institution: "",
+  department: "",
+  position: "",
+  designation: "",
+  workNumber: "",
+  phone: "",
+  email: "",
+  college: "AITR", 
+  socialMedia: {
+    linkedin: "",
+    portfolio: "",
+  },
+  extraContent: "",
+  extraContentStyles: {
+    bold: false,
+    italic: false,
+    underline: false,
+  },
+  imageLink: "",
+});
 
   const [generatedSignature, setGeneratedSignature] = useState(false);
 
@@ -212,7 +213,7 @@ const EmailSignatureForm = () => {
 
         {/* Role */}
         <Form.Group className="mb-3">
-          <Form.Label>Role:</Form.Label>
+          <Form.Label>Additional tittle/Position:</Form.Label>
           <Form.Control
             type="text"
             name="position"
@@ -269,6 +270,18 @@ const EmailSignatureForm = () => {
             required
           />
         </Form.Group>
+{/* College Selection */}
+<Form.Group className="mb-3">
+  <Form.Label>Select College:</Form.Label>
+  <Form.Select
+    name="college"
+    value={formData.college}
+    onChange={handleChange}
+  >
+     <option value="AGI">AGI</option>
+    <option value="AITR">AITR</option>
+  </Form.Select>
+</Form.Group>
 
         {/* Social */}
         <Form.Group className="mb-3">
@@ -296,7 +309,7 @@ const EmailSignatureForm = () => {
               <Form.Control
                 type="text"
                 placeholder="other links"
-                name="other links"
+                name="otherlinks"
                 value={formData.socialMedia.otherlinks}
                 onChange={handleSocialMediaChange}
               />
