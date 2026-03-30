@@ -132,6 +132,7 @@ const EmailSignatureForm = () => {
             onChange={handleChange}
             required
           >
+          <option value="">Select Department</option>
           <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
@@ -271,7 +272,7 @@ const EmailSignatureForm = () => {
 
         {/* Social */}
         <Form.Group className="mb-3">
-          <Form.Label>Social Media:</Form.Label>
+          <Form.Label>Links:</Form.Label>
           <Row>
             <Col>
               <Form.Control
@@ -288,6 +289,15 @@ const EmailSignatureForm = () => {
                 placeholder="Portfolio"
                 name="portfolio"
                 value={formData.socialMedia.portfolio}
+                onChange={handleSocialMediaChange}
+              />
+            </Col>
+             <Col>
+              <Form.Control
+                type="text"
+                placeholder="other links"
+                name="other links"
+                value={formData.socialMedia.otherlinks}
                 onChange={handleSocialMediaChange}
               />
             </Col>
