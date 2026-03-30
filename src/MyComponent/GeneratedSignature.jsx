@@ -100,7 +100,7 @@ ${email ? `<p style="margin:3px 0;"><b>M-</b> ${email}</p>` : ""}
 <img src="${selectedCollege.logo}" width="200"/>
 
 <p style="margin:3px 0;">
-<a href="${selectedCollege.link}">Visit Us</a>
+<a href="${selectedCollege.link}">For more details</a>
 </p>
 
 ${socialMedia.linkedin ? `
@@ -169,7 +169,7 @@ ${socialMedia.otherlinks ? `
       <img src={selectedCollege.logo} width="200" alt="" />
 
       <p style={baseText}>
-        <a href={selectedCollege.link}>our website</a>
+        <a href={selectedCollege.link}>For more details</a>
       </p>
 
       {socialMedia.linkedin && (
