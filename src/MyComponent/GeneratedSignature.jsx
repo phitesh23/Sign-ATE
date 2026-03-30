@@ -158,6 +158,7 @@ ${socialMedia.otherlinks ? `
       {position && <p style={baseText}>{position}</p>}
       {fullDesignation && <p style={baseText}>{fullDesignation}</p>}
       {department && <p style={baseText}>{department}</p>}
+      {institution && <p style={baseText}>{institution}</p>}
 
       <p style={baseText}><b>______________________</b></p>
 
