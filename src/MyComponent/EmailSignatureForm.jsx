@@ -286,7 +286,7 @@ const EmailSignatureForm = () => {
             <Col>
               <Form.Control
                 type="text"
-                placeholder="Portfolio"
+                placeholder="Portfolio/Personal website"
                 name="portfolio"
                 value={formData.socialMedia.portfolio}
                 onChange={handleSocialMediaChange}
