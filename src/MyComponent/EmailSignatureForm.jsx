@@ -280,6 +280,7 @@ const [formData, setFormData] = useState({
   >
     <option value="AGI">AGI</option>
     <option value="AITR">AITR</option>
+    <option value="AIMSR">AIMSR</option>
     <option value="AIPER">AIPER</option>
     <option value="AFMR">AFMR</option>
     <option value="AIL">AIL</option>
