@@ -278,8 +278,12 @@ const [formData, setFormData] = useState({
     value={formData.college}
     onChange={handleChange}
   >
-     <option value="AGI">AGI</option>
+    <option value="AGI">AGI</option>
     <option value="AITR">AITR</option>
+    <option value="AIPER">AIPER</option>
+    <option value="AFMR">AFMR</option>
+    <option value="AIL">AIL</option>
+    <option value="FTL">FTL</option>
   </Form.Select>
 </Form.Group>
 
