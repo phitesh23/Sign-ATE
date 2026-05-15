@@ -81,28 +81,11 @@ const GeneratedSignature = ({ formData }) => {
 ${name}
 </p>
 
-${position ? `<p style="margin:3px 0;">${position}</p>` : ""}
-
 ${fullDesignation ? `<p style="margin:3px 0;">${fullDesignation}</p>` : ""}
-
-${institution ? `<p style="margin:3px 0;">${institution}</p>` : ""}
 
 ${department ? `<p style="margin:3px 0;">${department}</p>` : ""}
 
-<p style="margin:3px 0;"><b>______________________</b></p>
-
-${workNumber ? `<p style="margin:3px 0;"><b>W-</b> ${workNumber}</p>` : ""}
-
-${phone ? `<p style="margin:3px 0;"><b>P-</b> ${phone}</p>` : ""}
-
-${email ? `<p style="margin:3px 0;"><b>M-</b> ${email}</p>` : ""}
-
-<img src="${selectedCollege.logo}" width="200"/>
-
-<p style="margin:3px 0;">
-<a href="${selectedCollege.link}">For more details</a>
-</p>
-
+${institution ? `<p style="margin:3px 0;">${institution}</p>` : ""}
 ${socialMedia.linkedin ? `
 <a href="${socialMedia.linkedin}">
 <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="18"/>
@@ -116,6 +99,23 @@ ${socialMedia.otherlinks ? `
 <a href="${socialMedia.otherlinks}">
 <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" width="18"/>
 </a>` : ""}
+
+
+<p style="margin:3px 0;"><b>______________________</b></p>
+
+${position ? `<p style="margin:3px 0;">${position}</p>` : ""}
+${workNumber ? `<p style="margin:3px 0;"><b>W-</b> ${workNumber}</p>` : ""}
+
+${phone ? `<p style="margin:3px 0;"><b>P-</b> ${phone}</p>` : ""}
+
+${email ? `<p style="margin:3px 0;"><b>M-</b> ${email}</p>` : ""}
+
+<img src="${selectedCollege.logo}" width="200"/>
+
+<p style="margin:3px 0;">
+<a href="${selectedCollege.link}">For more details</a>
+</p>
+
 
 </div>
 `;
