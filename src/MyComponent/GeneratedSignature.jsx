@@ -155,23 +155,9 @@ ${email ? `<p style="margin:3px 0;"><b>M-</b> ${email}</p>` : ""}
         {name}
       </p>
 
-      {position && <p style={baseText}>{position}</p>}
       {fullDesignation && <p style={baseText}>{fullDesignation}</p>}
-      {department && <p style={baseText}>{department}</p>}
       {institution && <p style={baseText}>{institution}</p>}
-
-      <p style={baseText}><b>______________________</b></p>
-
-      {workNumber && <p style={baseText}><b>W-</b> {workNumber}</p>}
-      {phone && <p style={baseText}><b>P-</b> {phone}</p>}
-      {email && <p style={baseText}><b>M-</b> {email}</p>}
-
-      <img src={selectedCollege.logo} width="200" alt="" />
-
-      <p style={baseText}>
-        <a href={selectedCollege.link}>For more details</a>
-      </p>
-
+      {department && <p style={baseText}>{department}</p>}
       {socialMedia.linkedin && (
         <a href={socialMedia.linkedin}>
           <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" width="18" alt="" />
@@ -189,6 +175,22 @@ ${email ? `<p style="margin:3px 0;"><b>M-</b> ${email}</p>` : ""}
         </a>
       )}
 
+     
+
+      <p style={baseText}><b>______________________</b></p>
+      {position && <p style={baseText}>{position}</p>}
+
+      {workNumber && <p style={baseText}><b>W-</b> {workNumber}</p>}
+      {phone && <p style={baseText}><b>P-</b> {phone}</p>}
+      {email && <p style={baseText}><b>M-</b> {email}</p>}
+
+      <img src={selectedCollege.logo} width="200" alt="" />
+
+      <p style={baseText}>
+        <a href={selectedCollege.link}>For more details</a>
+      </p>
+
+      
       {extraContent && (
         <div style={extraStyle}>
           {extraContent}
