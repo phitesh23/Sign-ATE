@@ -67,7 +67,6 @@ const [formData, setFormData] = useState({
     e.preventDefault();
     setGeneratedSignature(true);
   };
-
   const extraContentStyle = {
     fontFamily: "Roboto, sans-serif",
     fontWeight: formData.extraContentStyles.bold ? "bold" : "normal",
