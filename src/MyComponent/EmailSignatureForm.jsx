@@ -134,6 +134,28 @@ const [formData, setFormData] = useState({
             required
           >
           <option value="">Select Department</option>
+          <optgroup label="Acropolis Group of Institution">
+          <option value="Career Development Cell (CDC)">
+        Career Development Cell (CDC)
+      </option>
+           <option value="Administrative Office">
+        Administrative Office
+      </option>
+          <option value="Technical Department">
+        Technical Department
+      </option>
+          <option value="Accounts Department">
+        Accounts Department
+      </option>
+          <option value="Sports Department">
+        Sports Department
+      </option>
+          <option value="Transport Department">
+        Transport Department
+      </option>
+          <option value="Security Department">
+        Security Department
+      </option>
           <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
@@ -178,6 +200,8 @@ const [formData, setFormData] = useState({
 
     <optgroup label="Acropolis Faculty of Management & Research">
       <option value="MBA">MBA</option>
+    </optgroup>
+      <option value="MBA – Financial Administration (FA)">MBA – Financial Administration (FA)</option>
     </optgroup>
 
     <optgroup label="Acropolis Institute of Pharmaceutical Education & Research">
