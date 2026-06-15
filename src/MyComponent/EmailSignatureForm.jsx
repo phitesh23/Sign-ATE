@@ -249,24 +249,15 @@ const [formData, setFormData] = useState({
         </Form.Group>
 
         {/* Designation */}
-        <Form.Group className="mb-3">
-          <Form.Label>Designation:</Form.Label>
-          <Form.Control
-            type="text"
-            name="designation"
-            value={formData.designation}
-            onChange={handleChange}
-          >
-            <option value="">Select designation</option>
-            <option value="Director">Director</option>
-            <option value="HOD">HOD</option>
-            <option value="Prof.">Prof.</option>
-            <option value="Assistant Professor">Assistant Professor</option>
-            <option value="Lab Technician">Lab Technician</option>
-            <option value="Registrar">Registrar</option>
+       <Form.Group className="mb-3" controlId="formDesignation">
+        <Form.Label>Designation</Form.Label>
+         <Form.Control
+           type="text"
+           value={designation}
+           onChange={(e) => setDesignation(e.target.value)}
            placeholder="Enter designation"
-          />
-        </Form.Group>
+         />
+       </Form.Group>
 
         {/* Contact */}
         <Form.Group className="mb-3" controlId="workNumber">
