@@ -155,6 +155,7 @@ const [formData, setFormData] = useState({
           <option value="Security Department">
         Security Department
       </option>
+            </optgroup>
           <optgroup label="Acropolis Institute of Technology & Research">
       <option value="Computer Science & Engineering (CSE)">
         Computer Science & Engineering (CSE)
@@ -250,7 +251,8 @@ const [formData, setFormData] = useState({
         {/* Designation */}
         <Form.Group className="mb-3">
           <Form.Label>Designation:</Form.Label>
-          <Form.Select
+          <Form.Control
+            type="text"
             name="designation"
             value={formData.designation}
             onChange={handleChange}
@@ -263,6 +265,8 @@ const [formData, setFormData] = useState({
             <option value="Lab Technician">Lab Technician</option>
             <option value="Registrar">Registrar</option>
           </Form.Select>
+           placeholder="Enter designation"
+          />
         </Form.Group>
 
         {/* Contact */}
