@@ -264,7 +264,6 @@ const [formData, setFormData] = useState({
             <option value="Assistant Professor">Assistant Professor</option>
             <option value="Lab Technician">Lab Technician</option>
             <option value="Registrar">Registrar</option>
-          </Form.Select>
            placeholder="Enter designation"
           />
         </Form.Group>
