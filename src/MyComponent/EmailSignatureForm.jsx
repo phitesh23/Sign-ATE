@@ -202,7 +202,7 @@ const [formData, setFormData] = useState({
       <option value="MBA – Financial Administration (FA)">
        MBA – Financial Administration (FA)
       </option>
-  
+  </optgroup>
       
 
     <optgroup label="Acropolis Institute of Pharmaceutical Education & Research">
